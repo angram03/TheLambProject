@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const { NotFoundError } = require("./utils/errors");
 const { PORT } = require("./config");
 const authRoutes = require("./routes/auth");
+// const security = require("../the-lamb-project-api/middleware/security");
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 
+// app.use(security.extractUserFromJwt);
 app.use("/auth", authRoutes);
 
 app.get("/", function (req, res) {

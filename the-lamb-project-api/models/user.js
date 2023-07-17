@@ -1,24 +1,37 @@
 const { UnauthorizedError, BadRequestError } = require("../utils/errors");
 const { validateFields } = require("../utils/validate");
+const bcrypt = require("bcrypt");
+const { BRCYPT_WORK_FACTOR } = require("../config");
 const db = require("../db");
 class User {
+  static async makePublicUser(user) {
+    return {
+      id: user.id,
+      email: user.email,
+    };
+  }
   static async login(credentials) {
-    // console.log("USER ");
-    // const { email, password } = credentials;
-    // const requiredField = ["email", "password"];
-    // requiredField.forEach((field) => {
-    //   if (!credentials.hasOwnProperty(field)) {
-    //     throw new BadRequestError(`Missing ${field} in request body`);
-    //   }
-    // });
-    // const user = await User.fetchUserByEmail(email);
-    // if (user) {
-    //   console.log("GOOD");
-    //   if (isValid) {
-    //     return User.makePublicUser(user);
-    //   }
-    // }
-    // throw new UnauthorizedError("Invalid email and password");
+    console.log("HELLO fsd");
+    const requiredField = ["email", "password"];
+
+    requiredField.forEach((field) => {
+      if (!credentials.hasOwnProperty(field)) {
+        throw new BadRequestError(`Missing ${field} in request body`);
+      }
+    });
+
+    const user = await User.fetchUserByEmail(credentials.email);
+    console.log(user);
+    if (user) {
+      console.log(credentials.password);
+      console.log(user.password);
+      const isValid = await bcrypt.compare(credentials.password, user.password);
+      console.log(isValid);
+      if (isValid) {
+        return User.makePublicUser(user);
+      }
+    }
+    throw new UnauthorizedError("Invalid email and password");
   }
   static async register(credentials) {
     //user should put in their email and password to register
@@ -47,6 +60,11 @@ class User {
       throw new BadRequestError(`Duplicate email: ${credentials.email}`);
     }
 
+    const hashedPassword = await bcrypt.hash(
+      credentials.password,
+      BRCYPT_WORK_FACTOR
+    );
+
     const lowercasedEmail = credentials.email.toLowerCase();
 
     const result = await db.query(
@@ -60,10 +78,11 @@ class User {
         `,
 
       //this has to be in order
-      [lowercasedEmail, credentials.password]
+      [lowercasedEmail, hashedPassword]
     );
 
     const user = result.rows[0];
+
     return user;
   }
   static async fetchUserByEmail(email) {

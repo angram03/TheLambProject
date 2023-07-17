@@ -17,6 +17,8 @@ function getDatabaseUri() {
     `postgresql://${dbUser}:${dbpass}@${dbhost}:${dbport}/${dbName}`
   );
 }
+
+const BRCYPT_WORK_FACTOR = 13;
 console.log("Wedding Registration");
 console.log("PORT".blue, PORT);
 console.log("Database URI:".blue, getDatabaseUri());
@@ -24,5 +26,6 @@ console.log("---");
 
 module.exports = {
   PORT,
+  BRCYPT_WORK_FACTOR,
   getDatabaseUri,
 };
