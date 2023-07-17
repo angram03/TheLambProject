@@ -11,7 +11,6 @@ class User {
     };
   }
   static async login(credentials) {
-    console.log("HELLO fsd");
     const requiredField = ["email", "password"];
 
     requiredField.forEach((field) => {
