@@ -1,0 +1,28 @@
+
+
+.welcome-grid{
+
+   display:flex;
+   align-items: center; 
+   padding: 30px;
+
+   padding-bottom: 80px;
+   justify-content: space-between;
+   
+
+
+
+}
+
+.grid-1,.grid-2,.grid-3{
+    background-color:#015239;
+    border-radius: 20px;
+    color: white;
+    margin:auto;
+    border: 10px solid #e4faee ;
+    padding: 40px;
+    display:grid;
+
+
+}
+
