@@ -1,4 +1,6 @@
 import React from "react";
+import {useState} from "react"
+import "./UserPreference.css"
 
 const UserPreference = () => {
   const states = [
@@ -54,9 +56,86 @@ const UserPreference = () => {
     { name: 'Wyoming', code: 'WY' }
   ];
 
-  return(
-    <div className="up-container">
+   const [selectedState, setSelectedState] = useState([]);
+
+   const handleChange = (e) => {
+   setSelectedState(e.target.value);
+  };
       
+
+    const hobbies = [
+      "Running",
+      "Hiking",
+      "Reading",
+      "Coffee Tasting",
+      "Improvisation",
+      "Cycling",
+      "Gardening",
+      "Skiing",
+      "Museum Visits",
+      "Surfing",
+      "Yoga",
+      "Barbecue Grilling",
+      "Dancing",
+      "Photography",
+      "Biking",
+      "Ice Skating",
+      "Painting",
+      "Music Listening",
+      "Outdoor Photography",
+      "Board Games",
+      "Theme Park Visits",
+      "Cooking",
+      "Knitting",
+      "Writing",
+      "Canoeing",
+      "Beachcombing",
+      "Snorkeling",
+      "Picnicking",
+      "Golfing",
+      "Fishing",
+      "Baking",
+      "Chess",
+      "Beer Brewing",
+      "Brewery Tours" ,
+    ]
+
+  return(
+    <div className="userpref-container">
+      <div className="state-dropdown">
+        <h2>PICK YOUR STATE OF CHOICE</h2>
+        <h2>Remember there are 50 states! You have a lot of options.</h2>
+      <select value={selectedState} onChange={handleChange}>
+        <option value="">Select a state</option>
+        {states.map((state) => (
+          <option key={state.code} value={state.name}>
+            {state.name}
+          </option>
+        ))}
+      </select>
+      <p>Selected state: {selectedState}</p>
+      </div>
+      <div className="space">
+
+      </div>
+
+      {/* //hobbies checklist */}
+      <div className="checkList">
+        <h2>PICK YOUR HOBBIES</h2>
+    <div className="title"><h2>Hobbies</h2></div>
+    <div className="list-container">
+      {hobbies.map((item, index) => (
+         <div key={index}>
+           <input type="checkbox" />
+           <span>{item}</span>
+         </div>
+      ))}
+    </div>
+  </div>
+
+
+
+
 
     </div>
   )
