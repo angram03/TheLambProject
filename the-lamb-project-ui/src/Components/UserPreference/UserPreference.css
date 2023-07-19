@@ -1,0 +1,17 @@
+.userpref-container{
+  display: flex;
+  flex-direction: row;
+  border: solid black;
+ 
+}
+
+.space{
+    margin: 10px;
+}
+.checkList{
+    border: black solid;
+}
+
+.state-dropdown{
+    border: black solid;
+}
