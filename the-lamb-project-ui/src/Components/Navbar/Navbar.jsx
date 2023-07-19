@@ -12,9 +12,15 @@ const Navbar = () => {
       <h1 className='w-full text-3xl font-bold text-[#015239]'>LAMB.</h1>
 
       <ul className='flex'>
-        <li className="p-4">About</li>
+        {/* <li className="p-4">About</li>
         <li className="p-4">Login</li>
-        <li className="p-4">Register</li>
+        <li className="p-4">Register</li> */}
+        <li>
+          <a href="/login"><button className="log">LOGIN</button></a>
+        </li>
+        <li>
+          <a href="/register"><button className="log">register</button></a>
+        </li>
       </ul>
 
 
