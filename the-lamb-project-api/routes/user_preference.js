@@ -5,10 +5,11 @@ const router = express.Router();
 
 router.get("/preferences", async function (req, res, next) {
   try {
-    console.log("PREFERENCES");
-    const user_preference = await User_Preference(req.body);
-    return res.status(200).json({ user_preference });
+    console.log("HELLO");
+    const preference = await User_Preference.insertData();
+    return res.status(200).json({ preference });
   } catch (err) {
     next(err);
   }
 });
+module.exports = router;
