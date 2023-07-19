@@ -6,7 +6,7 @@ const SearchBar = () => {
     
     Search:  
     <input type = "text" placeholder="Search for a city..."/>
-    <button type = "submit">Submit</button>
+    <button className='one bg-[#015239] text-white px-2 py-2 rounded-lg'type = "submit">Try Now!</button>
 
   </div>
   );
