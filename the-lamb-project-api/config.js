@@ -19,6 +19,7 @@ function getDatabaseUri() {
 }
 
 const BRCYPT_WORK_FACTOR = 13;
+console.log("Secret kY".blue, SECRET_KEY);
 console.log("Wedding Registration");
 console.log("PORT".blue, PORT);
 console.log("Database URI:".blue, getDatabaseUri());
@@ -26,6 +27,7 @@ console.log("---");
 
 module.exports = {
   PORT,
+  SECRET_KEY,
   BRCYPT_WORK_FACTOR,
   getDatabaseUri,
 };
