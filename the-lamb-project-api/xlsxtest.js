@@ -11,12 +11,13 @@ const sheet = file.Sheets[sheetName];
 const jsonData = reader.utils.sheet_to_json(sheet);
 // console.log(jsonData);
 
-for (let i = 0; i < jsonData.length; i++) {
-  let obj = jsonData[i];
-  // console.log("City: ", obj.City);
-  console.log("State: ", obj.State);
-  // console.log("Physician: ", obj.Physician);
-}
+// for (let i = 0; i < jsonData.length; i++) {
+//   let obj = jsonData[i];
+//   // console.log("City: ", obj.City);
+//   console.log("State: ", obj.State);
+//   // console.log("Physician: ", obj.Physician);
+// }
+console.log(jsonData[0]);
 
 // for (let row of jsonData) {
 //   const cellValue = row[columnName];
