@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-  <div>
+  <div className='p-5'>
     Contact Us! 
 
     <input type = "text" placeholder="First Name:"/>
