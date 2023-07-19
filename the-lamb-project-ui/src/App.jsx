@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
@@ -7,25 +8,50 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 import WelcomePage from "./Components/WelcomePage/WelcomePage";
 import "./App.css";
 import AboutPage from "./Components/AboutPage/AboutPage";
-import { Link } from "react-router-dom";
+import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from "./Components/LoginForm/LoginForm";
+import { useState } from "react";
 import Footer from "./Components/Footer/Footer";
 
+import { Link } from "react-router-dom";
+
+
+
+
 const App = () => {
+  const [appState, setAppState] = useState({});
   return (
     <div>
-      <BrowserRouter>
-        <div>
+      {/* <Navbar/>
+    <Hero/>
+    <SearchBar/>
+    <WelcomeGrid/>
+    <ContactUs/> */}
+
+      <div>
+        <BrowserRouter>
           <Navbar />
-          <div>
-            <Routes>
-              <Route path="/" element={<WelcomePage />} />
-              <Route path="/about" element={<AboutPage />} exact />
-            </Routes>
-            <Footer />
-          </div>
-        </div>
-      </BrowserRouter>
+          <Hero />
+          <SearchBar />
+          <WelcomeGrid />
+          <ContactUs />
+
+          <Routes>
+            <Route path="/" element={<WelcomePage/>}/> 
+             <Route path="/about" element={<AboutPage />} />
+            <Route
+              path="/login"
+              element={<LoginForm setAppState={setAppState} />}
+            />
+            <Route
+              path="/register"
+              element={<RegisterCard setAppState={setAppState} />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
     </div>
   );
 };
