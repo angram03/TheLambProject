@@ -5,7 +5,7 @@ const { NotFoundError } = require("./utils/errors");
 const { PORT } = require("./config");
 const authRoutes = require("./routes/auth");
 const userPreferenceRoutes = require("./routes/user_preference");
-const security = require("/Users/hmuse/Desktop/TheLambProject/the-lamb-project-api/middleware/security.js");
+// const security = require("/Users/hmuse/Desktop/TheLambProject/the-lamb-project-api/middleware/security.js");
 
 const app = express();
 
@@ -15,11 +15,9 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 // app.use(security.extractUserFromJwt);
-app.use(security.extractUserFromJwt);
+// app.use(security.extractUserFromJwt);
 app.use("/auth", authRoutes);
 app.use("/user", userPreferenceRoutes);
-
-console.log("HELLO");
 
 app.get("/", function (req, res) {
   console.log("HELLO");
