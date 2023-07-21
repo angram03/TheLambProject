@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
+import UserPreference from "./Components/UserPreference/UserPreference";
 
 
 const App = () => {
@@ -35,6 +36,11 @@ const App = () => {
               path="/register"
               element={<RegisterCard setAppState={setAppState} />}
             />
+            <Route
+              path="/userpreferences"
+              element={<UserPreference setAppState={setAppState} />}
+            />
+
             </Routes>
           </div>
         </div>

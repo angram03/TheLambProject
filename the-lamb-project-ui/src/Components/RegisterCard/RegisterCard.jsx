@@ -76,32 +76,41 @@ export default function RegisterCard({ setAppState }) {
       setIsLoading(false)
     }
   }
-
+//bg-gradient-to-r from-yellow-400 via-amber-100 to-amber-500
   return (
-    <div className="Register">
+    <div >
 
-      <div className="card">
-        <h2>Register</h2>
+      
+
+      
+      
+    <div className="Register">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold text-[#044389] leading-9 tracking-tight text-gray-900">Register</h2>
 
         {errors.form && <span className="error">{errors.form}</span>}
         <br />
 
-        <div className="form">
-          <div className="split-inputs">
-    
-          </div>
+        <div>
+          
+          <form className="space-y-6" action="#" method="POST">
+          <div className="mt-2">
             <div className="input-field">
-          <label htmlFor="name">Username</label>
+            <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
               <input
                 type="text"
                 name="userName"
                 placeholder="username"
                 value={form.userName}
                 onChange={handleOnInputChange}
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.userName && <span className="error">{errors.userName}</span>}
         </div>
 
+          </div>
+          <div className="mt-2">
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input
@@ -110,10 +119,13 @@ export default function RegisterCard({ setAppState }) {
               placeholder="email"
               value={form.email}
               onChange={handleOnInputChange}
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
+          </div>
 
+          <div className="mt-2">
           <div className="input-field">
             <label htmlFor="password">Password</label>
             <input
@@ -122,10 +134,13 @@ export default function RegisterCard({ setAppState }) {
               placeholder="password"
               value={form.password}
               onChange={handleOnInputChange}
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
+          </div>
 
+          <div className="mt-2">
           <div className="input-field">
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input
@@ -134,13 +149,19 @@ export default function RegisterCard({ setAppState }) {
               placeholder="confirm password"
               value={form.passwordConfirm}
               onChange={handleOnInputChange}
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
             {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
           </div>
-
-          <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
-            {isLoading ? "Loading..." : "Create Account"}
+          </div>
+          <div>
+          <button className="flex w-full justify-center rounded-md bg-[#044389] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#044389] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={isLoading} onClick={handleOnSubmit}>
+             {isLoading ? "Loading..." : "Create Account"}
           </button>
+
+          </div>
+          </form>
+  
         </div>
 
         <div className="footer">
@@ -149,6 +170,9 @@ export default function RegisterCard({ setAppState }) {
           </p>
         </div>
       </div>
+      </div>
+      </div>
+      
     </div>
   )
 }
