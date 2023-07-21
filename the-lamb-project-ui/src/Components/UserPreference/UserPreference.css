@@ -1,17 +1,26 @@
 .userpref-container{
   display: flex;
   flex-direction: row;
-  border: solid black;
+ 
  
 }
 
 .space{
     margin: 10px;
 }
-.checkList{
-    border: black solid;
+
+
+.userpref-container h1{
+    font-family: 'Cabin', sans-serif;
+    font-size: 30px;
+   
+}
+.list-container2 span{
+    font-size: 25px;
+    font-family: 'Cabin', sans-serif;
 }
 
-.state-dropdown{
-    border: black solid;
+.list-container span{
+    font-size: 20px;
+    font-family: 'Cabin', sans-serif;
 }
