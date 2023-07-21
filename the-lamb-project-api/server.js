@@ -15,11 +15,9 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 // app.use(security.extractUserFromJwt);
-app.use(security.extractUserFromJwt);
+// app.use(security.extractUserFromJwt);
 app.use("/auth", authRoutes);
 app.use("/user", userPreferenceRoutes);
-
-console.log("HELLO");
 
 app.get("/", function (req, res) {
   console.log("HELLO");
