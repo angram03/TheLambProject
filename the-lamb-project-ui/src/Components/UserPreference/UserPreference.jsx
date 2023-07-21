@@ -64,40 +64,40 @@ const UserPreference = () => {
       
 
     const hobbies = [
-      "Running",
-      "Hiking",
-      "Reading",
-      "Coffee Tasting",
-      "Improvisation",
-      "Cycling",
-      "Gardening",
-      "Skiing",
-      "Museum Visits",
-      "Surfing",
-      "Yoga",
-      "Barbecue Grilling",
-      "Dancing",
-      "Photography",
-      "Biking",
-      "Ice Skating",
-      "Painting",
-      "Music Listening",
-      "Outdoor Photography",
-      "Board Games",
-      "Theme Park Visits",
-      "Cooking",
-      "Knitting",
-      "Writing",
-      "Canoeing",
-      "Beachcombing",
-      "Snorkeling",
-      "Picnicking",
-      "Golfing",
-      "Fishing",
-      "Baking",
-      "Chess",
-      "Beer Brewing",
-      "Brewery Tours" ,
+      " Running",
+      " Hiking",
+      " Reading",
+      " Coffee Tasting",
+      " Improvisation",
+      " Cycling",
+      " Gardening",
+      " Skiing",
+      " Museum Visits",
+      " Surfing",
+      " Yoga",
+      " Barbecue Grilling",
+      " Dancing",
+      " Photography",
+      " Biking",
+      " Ice Skating",
+      " Painting",
+      " Music Listening",
+      " Outdoor Photography",
+      " Board Games",
+      " Theme Park Visits",
+      " Cooking",
+      " Knitting",
+      " Writing",
+      " Canoeing",
+      " Beachcombing",
+      " Snorkeling",
+      " Picnicking",
+      " Golfing",
+      " Fishing",
+      " Baking",
+      " Chess",
+      " Beer Brewing",
+      " Brewery Tours" ,
     ]
 
     const industry = ["Physician", 
@@ -105,7 +105,7 @@ const UserPreference = () => {
       "Teachers",
       "Fashion",
       "Culinary", 
-      "Social_Work",]
+      "Social Work",]
 
       const [selectedIndustry, setSelectedIndustry] = useState([]);
 
@@ -114,19 +114,51 @@ const UserPreference = () => {
      };
 
      const seasonalWeather = [
-      "warm winter ❄️🌞", 
-      "cold winter ❄️🥶", 
-      "warm spring 🌷🌱🌞",
-      "cold spring 🌷🌱🥶",
-      "warm summer 👙🏄🌞", 
-      "cold summer 👙🏄🥶",
-      "warm autumn 🍂🍁🌞",
-      "cold autumn 🍂🍁🥶",
+      " warm winter ❄️🌞", 
+      " cold winter ❄️🥶", 
+      " warm spring 🌷🌱🌞",
+      " cold spring 🌷🌱🥶",
+      " warm summer 👙🏄🌞", 
+      " cold summer 👙🏄🥶",
+      " warm autumn 🍂🍁🌞",
+      " cold autumn 🍂🍁🥶",
     ]
 
 
   return(
     <div className="userpref-container">
+      <div>
+
+      </div>
+        <div className="space">
+
+        </div>
+
+        <div className="space">
+
+        </div>
+
+        <div className="space">
+
+        </div>
+        <div className="space">
+
+        </div>
+        <div className="space">
+
+        </div>
+        <div className="space">
+
+        </div>
+        <div className="space">
+
+        </div>
+        <div className="space">
+
+        </div>
+        <div className="space">
+
+        </div>
       <div className="state-dropdown">
         <h1>Pick your state of choice.</h1>
         <h2>Remember there are 50 states! You have a lot of options.</h2>

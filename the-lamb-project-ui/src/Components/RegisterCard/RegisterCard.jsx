@@ -87,7 +87,7 @@ export default function RegisterCard({ setAppState }) {
     <div className="Register">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold text-[#044389] leading-9 tracking-tight text-gray-900">Register</h2>
+        <h2 className="mt-10 text-center text-2xl font-bold text-[#044389] leading-9 tracking-tight text-[#044389]">Register</h2>
 
         {errors.form && <span className="error">{errors.form}</span>}
         <br />
@@ -149,7 +149,7 @@ export default function RegisterCard({ setAppState }) {
               placeholder="confirm password"
               value={form.passwordConfirm}
               onChange={handleOnInputChange}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-[#044389] shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
             {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
           </div>
@@ -164,9 +164,9 @@ export default function RegisterCard({ setAppState }) {
   
         </div>
 
-        <div className="footer">
+        <div className="text-[#044389]">
           <p>
-            Already have an account? Login <Link to="/login">here</Link>
+            Already have an account? <Link to="/login"> Login here</Link>
           </p>
         </div>
       </div>
