@@ -68,9 +68,19 @@ class User_Preference {
         throw new BadRequestError(`Missing ${field} in request body.`);
       }
     });
-
-    const query = `SELECT * FROM users_preference WHERE state = $1`;
-    const result = await db.query(query, [preferences.State]);
+    const columnName = preferences.Industry;
+    const query = `
+    SELECT * FROM users_preference 
+      WHERE state = $1 OR Hobby = $2 OR ${columnName} = true
+      ORDER BY 
+        CASE WHEN state = $1 THEN 0 ELSE 1 END, 
+          CASE WHEN Hobby = $2 THEN 0 ELSE 1 END;
+  
+      `;
+    const result = await db.query(query, [
+      preferences.State,
+      preferences.Hobby,
+    ]);
     const user = result.rows;
     return user;
   }
