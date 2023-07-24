@@ -52,13 +52,13 @@ export default function LoginForm({ setAppState }) {
   }
 
   return (
-    <div className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+    <div className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#044389]">
    
        <div>
         
        </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-bg-[#044389]">Login to the Portal</h2>
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#044389]">Login to the Portal</h2>
 
         
 
