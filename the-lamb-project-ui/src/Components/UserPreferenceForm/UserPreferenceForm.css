@@ -1,6 +1,8 @@
 .userpref-container{
   display: flex;
   flex-direction: row;
+  background: E4FAEE;
+background: linear-gradient(90deg, E4FAEE 0%, rgba(151,196,205,1) 0%);
  
  
 }
@@ -12,15 +14,18 @@
 
 .userpref-container h1{
     font-family: 'Cabin', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
+    color: #015239;
    
 }
 .list-container2 span{
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Cabin', sans-serif;
+    color: #015239;
 }
 
 .list-container span{
     font-size: 20px;
     font-family: 'Cabin', sans-serif;
+    color: #015239;
 }

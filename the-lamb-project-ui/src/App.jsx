@@ -13,7 +13,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
-import UserPreference from "./Components/UserPreference/UserPreference";
+import UserPreference from "./Components/UserPreferenceForm/UserPreferenceForm";
+
 
 
 const App = () => {
