@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom"
-import "./RegisterCard.css"
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 export default function RegisterCard({ setAppState }) {
@@ -55,7 +55,7 @@ export default function RegisterCard({ setAppState }) {
     }
 
     try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
+      const res = await axios.post(`http://localhost:3001/auth/register`, {
         userName: form.userName,
         email: form.email,
         password: form.password,
@@ -95,6 +95,7 @@ export default function RegisterCard({ setAppState }) {
         <div>
           
           <form className="space-y-6" action="#" method="POST">
+            
           <div className="mt-2">
             <div className="input-field">
             <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">Username</label>

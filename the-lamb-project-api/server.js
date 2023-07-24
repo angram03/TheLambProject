@@ -5,7 +5,7 @@ const { NotFoundError } = require("./utils/errors");
 const { PORT } = require("./config");
 const authRoutes = require("./routes/auth");
 const userPreferenceRoutes = require("./routes/user_preference");
-const security = require("/Users/hmuse/Desktop/TheLambProject/the-lamb-project-api/middleware/security.js");
+const security = require("/Users/angelica.ramirez/Desktop/LAMB CAPSTONE/TheLambProject/the-lamb-project-api/server.js");
 
 const app = express();
 
