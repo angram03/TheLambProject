@@ -6,7 +6,7 @@ CREATE TABLE users(
 );
 CREATE TABLE users_preference(
     id SERIAL PRIMARY KEY, 
-    City TEXT NOT NULL,
+    City TEXT NOT NULL UNIQUE,
     State TEXT NOT NULL,
     Physician BOOLEAN NOT NULL, 
     Software BOOLEAN NOT NULL, 
