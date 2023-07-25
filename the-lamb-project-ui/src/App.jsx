@@ -15,7 +15,8 @@ import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import UserPreference from "./Components/UserPreference/UserPreference";
 import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
-import MatchedCitiesList from "./Components/MatchedCitiesList/MatchedCitiesList";
+import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
+import MatchedCityListPage from "./Components/MatchedCityPage/MatchedCityPage";
 
 const App = () => {
   const [appState, setAppState] = useState({});
@@ -54,7 +55,7 @@ const App = () => {
               />
               <Route
                 path="/matchedcitieslist"
-                element={<MatchedCitiesList likedCityCount={likedCityCount} />}
+                element={<MatchedCitiesList />}
               />
             </Routes>
           </div>
