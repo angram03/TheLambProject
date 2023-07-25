@@ -14,33 +14,49 @@ import Footer from "./Components/Footer/Footer";
 import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import UserPreference from "./Components/UserPreference/UserPreference";
-
+import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
+import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
+import MatchedCityListPage from "./Components/MatchedCityPage/MatchedCityPage";
 
 const App = () => {
   const [appState, setAppState] = useState({});
+  const [likedCityCount, setLikedCityCount] = useState(0);
+
+  const AcceptCity = (event) => {
+    setLikedCityCount(likedCityCount + 1);
+    console.log(likedCityCount);
+    console.log("Accept");
+  };
 
   return (
     <div>
       <BrowserRouter>
         <div>
-          <Navbar />
+          <Navbar likedCityCount={likedCityCount} />
           <div>
             <Routes>
               <Route path="/" element={<WelcomePage />} />
               <Route path="/about" element={<AboutPage />} exact />
               <Route
-              path="/login"
-              element={<LoginForm setAppState={setAppState} />}
-            />
-            <Route
-              path="/register"
-              element={<RegisterCard setAppState={setAppState} />}
-            />
-            <Route
-              path="/userpreferences"
-              element={<UserPreference setAppState={setAppState} />}
-            />
-
+                path="/login"
+                element={<LoginForm setAppState={setAppState} />}
+              />
+              <Route
+                path="/register"
+                element={<RegisterCard setAppState={setAppState} />}
+              />
+              <Route
+                path="/userpreferences"
+                element={<UserPreference setAppState={setAppState} />}
+              />
+              <Route
+                path="/matchedcity"
+                element={<MatchedCityPage AcceptCity={AcceptCity} />}
+              />
+              <Route
+                path="/matchedcitieslist"
+                element={<MatchedCitiesList />}
+              />
             </Routes>
           </div>
         </div>

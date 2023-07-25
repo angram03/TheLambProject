@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
-// import "./UserPreference.css";
 
-const UserPreference = () => {
+const StateInfo = () => {
   const states = [
     { name: "Alabama", code: "AL" },
     { name: "Alaska", code: "AK" },
@@ -62,71 +61,8 @@ const UserPreference = () => {
     setSelectedState(e.target.value);
   };
 
-  const hobbies = [
-    "Running",
-    "Hiking",
-    "Reading",
-    "Coffee Tasting",
-    "Improvisation",
-    "Cycling",
-    "Gardening",
-    "Skiing",
-    "Museum Visits",
-    "Surfing",
-    "Yoga",
-    "Barbecue Grilling",
-    "Dancing",
-    "Photography",
-    "Biking",
-    "Ice Skating",
-    "Painting",
-    "Music Listening",
-    "Outdoor Photography",
-    "Board Games",
-    "Theme Park Visits",
-    "Cooking",
-    "Knitting",
-    "Writing",
-    "Canoeing",
-    "Beachcombing",
-    "Snorkeling",
-    "Picnicking",
-    "Golfing",
-    "Fishing",
-    "Baking",
-    "Chess",
-    "Beer Brewing",
-    "Brewery Tours",
-  ];
-
-  const industry = [
-    "Physician",
-    "Software",
-    "Teachers",
-    "Fashion",
-    "Culinary",
-    "Social_Work",
-  ];
-
-  const [selectedIndustry, setSelectedIndustry] = useState([]);
-
-  const handleChangeIndustry = (e) => {
-    setSelectedIndustry(e.target.value);
-  };
-
-  const seasonalWeather = [
-    "warm winter ❄️🌞",
-    "cold winter ❄️🥶",
-    "warm spring 🌷🌱🌞",
-    "cold spring 🌷🌱🥶",
-    "warm summer 👙🏄🌞",
-    "cold summer 👙🏄🥶",
-    "warm autumn 🍂🍁🌞",
-    "cold autumn 🍂🍁🥶",
-  ];
-
   return (
-    <div className="userpref-container">
+    <div>
       <div className="state-dropdown">
         <h1>Pick your state of choice.</h1>
         <h2>Remember there are 50 states! You have a lot of options.</h2>
@@ -141,52 +77,8 @@ const UserPreference = () => {
         <p>Selected state: {selectedState}</p>
       </div>
       <div className="space"></div>
-
-      {/* //hobbies checklist */}
-      <div className="checkList">
-        <h1>What is your favorite hobby?</h1>
-        <div className="title">
-          <h1>Hobbies</h1>
-        </div>
-        <div className="list-container">
-          {hobbies.map((item, index) => (
-            <div key={index}>
-              <input type="checkbox" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="space"></div>
-
-      <div className="industry-dropdown">
-        <h1>What industry are you in?</h1>
-        <select value={selectedIndustry} onChange={handleChangeIndustry}>
-          <option value="">Select your Industry</option>
-          {industry.map((industry) => (
-            <option key={industry} value={industry}>
-              {industry}
-            </option>
-          ))}
-        </select>
-        <p>Selected industry: {selectedIndustry}</p>
-      </div>
-
-      <div className="space"></div>
-
-      <div className="checkList-weather">
-        <h1>What kind of weather do you enjoy the most?</h1>
-        <div className="list-container2">
-          {seasonalWeather.map((item, index) => (
-            <div key={index}>
-              <input type="checkbox" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };
 
-export default UserPreference;
+export default StateInfo;

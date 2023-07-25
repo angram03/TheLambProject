@@ -1,0 +1,29 @@
+.Card {
+  text-align: center;
+  /* border: solid; */
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.CityName {
+  font-size: xx-large;
+}
+.CityImage {
+  border: solid;
+  width: 100%;
+}
+/* .AcceptOrReject {
+  display: flex;
+  justify-content: space-between;
+
+  width: 50.9%;
+  margin: 0 auto;
+} */
+.Accept {
+  font-size: xx-large;
+  margin: auto;
+}
+.Reject {
+  font-size: xx-large;
+  margin: auto;
+}
