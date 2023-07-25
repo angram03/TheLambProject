@@ -16,6 +16,6 @@ CREATE TABLE users_preference(
     Social_Work BOOLEAN NOT NULL,
     Hobby TEXT NOT NULL, 
     Hottest_Summer INTEGER NOT NULL, 
-    Coldest_Winter INTEGER NOT NULL
-
-)
+    Coldest_Winter INTEGER NOT NULL, 
+    Images TEXT NOT NULL
+);

@@ -29,9 +29,10 @@ class User_Preference {
             Social_Work,
             Hobby,
             Hottest_Summer,
-            Coldest_Winter
+            Coldest_Winter,
+            Images
           )
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
           RETURNING *;
         `, [
           jsonData.City,
@@ -45,6 +46,7 @@ class User_Preference {
           jsonData.Hobby,
           jsonData.Hottest_Summer,
           jsonData.Coldest_Winter,
+          jsonData.Images
         ]);
   
         const row = result.rows[0];
