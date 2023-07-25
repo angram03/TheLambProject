@@ -12,13 +12,13 @@
   border: solid;
   width: 100%;
 }
-.AcceptOrReject {
+/* .AcceptOrReject {
   display: flex;
   justify-content: space-between;
 
   width: 50.9%;
   margin: 0 auto;
-}
+} */
 .Accept {
   font-size: xx-large;
   margin: auto;
