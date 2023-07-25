@@ -1,0 +1,20 @@
+.swipe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.cardContainer {
+  height: 500px;
+  max-width: 260px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}

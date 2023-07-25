@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AboutPage from "../AboutPage/AboutPage";
+import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ likedCityCount }) => {
   return (
     <div className="navbar">
       <div className="flex justify-between items-center h-24 max-w-[1240px]mx-auto px-4 text-[#015239]">
@@ -16,6 +17,11 @@ const Navbar = () => {
         </h1>
 
         <ul className="flex">
+          <Link to="/matchedcitieslist">
+            <span className="House">🏠</span>
+          </Link>
+
+          <span className="CityNumber">{likedCityCount}</span>
           <li className="p-4  text-lg ">
             <Link to="/about">About</Link>
           </li>
