@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./UserPreference.css";
+// import "./UserPreference.css";
 
 const UserPreference = () => {
   const states = [
