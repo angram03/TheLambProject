@@ -15,7 +15,8 @@ CREATE TABLE users_preference(
     Culinary BOOLEAN NOT NULL, 
     Social_Work BOOLEAN NOT NULL,
     Hobby TEXT NOT NULL, 
-    Hottest_Summer INTEGER NOT NULL, 
-    Coldest_Winter INTEGER NOT NULL, 
+    Low INTEGER NOT NULL, 
+    High INTEGER NOT NULL,
+    Average INTEGER NOT NULL,
     Images TEXT NOT NULL
 );

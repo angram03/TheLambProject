@@ -5,19 +5,28 @@ const { BadRequestError } = require("../utils/errors");
 // const { json } = require("express");
 
 class User_Preference {
+  //  provides functionality for inserting user preferences
+  // from an Excel file into a PostgreSQL database
+
+  // insertData reads data from Excel file and inserts it into database
   static async insertData() {
     const file = xlsx.readFile("./user_preferences_table.xlsx");
     const data = [];
-  
+
     const sheetName = file.SheetNames[0];
     const sheet = file.Sheets[sheetName];
     const datalistJsonData = xlsx.utils.sheet_to_json(sheet);
-  
+
     for (let i = 0; i < datalistJsonData.length; i++) {
       const jsonData = datalistJsonData[i];
-  
+
+      // data represents user preferences for different categories/industries
+
       try {
-        const result = await db.query(`
+        // an sql query that uses placeholders for the values that will be replaced with actual values
+        //data is from the jsonData object
+        const result = await db.query(
+          `
           INSERT INTO users_preference (
             City,
             State,
@@ -28,45 +37,53 @@ class User_Preference {
             Culinary,
             Social_Work,
             Hobby,
-            Hottest_Summer,
-            Coldest_Winter,
+            Low,
+            High,
+            Average,
             Images
           )
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
           RETURNING *;
-        `, [
-          jsonData.City,
-          jsonData.State,
-          jsonData.Physician,
-          jsonData.Software,
-          jsonData.Teachers,
-          jsonData.Fashion,
-          jsonData.Culinary,
-          jsonData.Social_Work,
-          jsonData.Hobby,
-          jsonData.Hottest_Summer,
-          jsonData.Coldest_Winter,
-          jsonData.Images
-        ]);
-  
+        `,
+          [
+            jsonData.City,
+            jsonData.State,
+            jsonData.Physician,
+            jsonData.Software,
+            jsonData.Teachers,
+            jsonData.Fashion,
+            jsonData.Culinary,
+            jsonData.Social_Work,
+            jsonData.Hobby,
+            jsonData.Low,
+            jsonData.High,
+            jsonData.Average,
+            jsonData.Images,
+          ]
+        );
+
+        // code extracts the first row which is the newly inserted info
+
         const row = result.rows[0];
         console.log("row", result.rows[0]);
         data.push(row);
       } catch (err) {
         // Check if the error is due to a duplicate key violation (city already exists)
-        if (err.code === '23505') {
-          console.error(`Duplicate data for city: ${jsonData.City}. Skipping insertion.`);
+        if (err.code === "23505") {
+          console.error(
+            `Duplicate data for city: ${jsonData.City}. Skipping insertion.`
+          );
         } else {
           // Handle other errors
-          console.error('Error while inserting data:', err.message);
+          console.error("Error while inserting data:", err.message);
         }
       }
     }
-  
+
     return data;
   }
-  
 
+  // retrieves data from database based on the user's preferences
 
   static async gettingData(preferences) {
     const requiredField = ["State", "Hobby", "Industry"];
