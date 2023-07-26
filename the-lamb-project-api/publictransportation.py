@@ -19,4 +19,9 @@ def wikibot(url):
             heading = j.find_all('th')
             detail = j.find_all('td')
             if heading is not None and detail is not None:
-                for x,y in zip(heading)
+                for x,y in zip(heading, detail):
+                    print("{} :: {}".format(x.text,y.text))
+                    print("-------------")
+            for i in range(1,3):
+                print(soup('p')[i].text)
+        wikibot(url)
