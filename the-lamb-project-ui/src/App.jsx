@@ -13,20 +13,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
-import UserPreference from "./Components/UserPreference/UserPreference";
+import UserPreference from "./Components/UserPreferenceForm/UserPreferenceForm";
 import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
-import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
-import MatchedCityListPage from "./Components/MatchedCityPage/MatchedCityPage";
+
+
 
 const App = () => {
   const [appState, setAppState] = useState({});
-  const [likedCityCount, setLikedCityCount] = useState(0);
+  const [formData, setFormData] = useState({
+    state: "",
+    industry: "",
+    hobbies: "",
+    weather: "",
+  });
 
-  const AcceptCity = (event) => {
-    setLikedCityCount(likedCityCount + 1);
-    console.log(likedCityCount);
-    console.log("Accept");
-  };
 
   return (
     <div>
@@ -38,25 +38,23 @@ const App = () => {
               <Route path="/" element={<WelcomePage />} />
               <Route path="/about" element={<AboutPage />} exact />
               <Route
-                path="/login"
-                element={<LoginForm setAppState={setAppState} />}
-              />
-              <Route
-                path="/register"
-                element={<RegisterCard setAppState={setAppState} />}
-              />
-              <Route
-                path="/userpreferences"
-                element={<UserPreference setAppState={setAppState} />}
-              />
-              <Route
-                path="/matchedcity"
-                element={<MatchedCityPage AcceptCity={AcceptCity} />}
-              />
-              <Route
-                path="/matchedcitieslist"
-                element={<MatchedCitiesList />}
-              />
+              path="/login"
+              element={<LoginForm setAppState={setAppState} />}
+            />
+            <Route
+              path="/register"
+              element={<RegisterCard setAppState={setAppState} />}
+            />
+            <Route
+              path="/userpreferences"
+              element={<UserPreference setAppState={setAppState} setFormData={setFormData} formData={formData}/>}
+            />
+            <Route 
+              path="/matchedcitycards"
+              element={<MatchedCityPage formData={formData}/>}
+            
+            />
+
             </Routes>
           </div>
         </div>

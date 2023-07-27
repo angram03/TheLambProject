@@ -1,7 +1,9 @@
 import React from "react";
-import { useState } from "react";
 
-const StateInfo = () => {
+
+const StateInfo = ({formData, setFormData}) => {
+
+  
   const states = [
     { name: "Alabama", code: "AL" },
     { name: "Alaska", code: "AK" },
@@ -55,10 +57,10 @@ const StateInfo = () => {
     { name: "Wyoming", code: "WY" },
   ];
 
-  const [selectedState, setSelectedState] = useState([]);
+  
 
   const handleChange = (e) => {
-    setSelectedState(e.target.value);
+    setFormData({...formData, "state": e.target.value});
   };
 
   return (
@@ -66,15 +68,14 @@ const StateInfo = () => {
       <div className="state-dropdown">
         <h1>Pick your state of choice.</h1>
         <h2>Remember there are 50 states! You have a lot of options.</h2>
-        <select value={selectedState} onChange={handleChange}>
+        <select value={formData.state} onChange={handleChange}>
           <option value="">Select a state</option>
           {states.map((state) => (
-            <option key={state.code} value={state.name}>
+            <option key={state.code} value={state.name} onChange={handleChange}>
               {state.name}
             </option>
           ))}
         </select>
-        <p>Selected state: {selectedState}</p>
       </div>
       <div className="space"></div>
     </div>
@@ -82,3 +83,4 @@ const StateInfo = () => {
 };
 
 export default StateInfo;
+
