@@ -54,11 +54,12 @@ const App = () => {
   const outOfFrame = (name) => {
     console.log(name + " left the screen");
   };
+
   return (
     <div>
       <BrowserRouter>
         <div>
-          <Navbar likedCityCount={likedCityCount} />
+          <Navbar likedCityCount={likedCityCount} cities={cities} />
           <div>
             <Routes>
               <Route path="/" element={<WelcomePage />} />
@@ -77,11 +78,18 @@ const App = () => {
               />
               <Route
                 path="/matchedcity"
-                element={<MatchedCityPage AcceptCity={AcceptCity} />}
+                element={
+                  <MatchedCityPage
+                    AcceptCity={AcceptCity}
+                    swiped={swiped}
+                    outOfFrame={outOfFrame}
+                    lastDirection={lastDirection}
+                  />
+                }
               />
               <Route
                 path="/matchedcitieslist"
-                element={<MatchedCitiesList />}
+                element={<MatchedCitiesList cities={cities} />}
               />
             </Routes>
           </div>
