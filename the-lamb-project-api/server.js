@@ -6,6 +6,7 @@ const { PORT } = require("./config");
 const authRoutes = require("./routes/auth");
 const userPreferenceRoutes = require("./routes/user_preference");
 const security = require("./middleware/security.js");
+const cityRouter = require("./routes/city.js")
 
 const cityRouter = require("./routes/city_card")
 
@@ -22,6 +23,7 @@ app.use(morgan("tiny"));
 // app.use(security.extractUserFromJwt);
 // app.use(security.extractUserFromJwt);
 app.use("/auth", authRoutes);
+app.use("/city", cityRouter)
 app.use("/user", userPreferenceRoutes);
 app.use("/city_card", cityRouter)
 

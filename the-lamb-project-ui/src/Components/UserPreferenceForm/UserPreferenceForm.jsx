@@ -4,21 +4,30 @@ import StateInfo from "../UserPrefPages/StateInfo";
 import HobbyInfo from "../UserPrefPages/HobbyInfo";
 import Industry from "../UserPrefPages/Industry";
 import WeatherInfo from "../UserPrefPages/WeatherInfo";
+import { useNavigate } from "react-router-dom";
 
 
-const UserPreferenceForm = () => {
+const UserPreferenceForm = ({formData, setFormData}) => {
+  const navigate = useNavigate()
+  function formSubmit() {
+  if(formData.state && formData.industry && formData.hobbies && formData.weather) {
+   navigate("/matchedcitycards")
+  }
+  
+
+
+  }
+
+
+
   const [page, setPage] = useState(0);
-  const [formData, setFormData] = useState({
-    state: [],
-    industry: [],
-    hobbies: [],
-    weather: [],
-  });
+  
+  console.log("formData", formData)
 
   const FormTitles = ["State", "Industry", "Hobbies", "Weather"];
   const PageDisplay = () => {
     if (page === 0) {
-      return <StateInfo formData={formData} setFormData={setFormData} />;
+      return <StateInfo  formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
       return <Industry formData={formData} setFormData={setFormData} />;
 
@@ -52,7 +61,7 @@ return (
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");
+                formSubmit();
                 console.log(formData);
               } else {
                 setPage((currPage) => currPage + 1);
@@ -71,3 +80,4 @@ return (
 }
 
 export default UserPreferenceForm
+

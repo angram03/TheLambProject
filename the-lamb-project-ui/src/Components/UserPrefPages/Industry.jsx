@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-const Industry = () => {
+
+const Industry = ({formData, setFormData}) => {
   const industry = [
     "Physician",
     "Software",
@@ -9,24 +9,23 @@ const Industry = () => {
     "Culinary",
     "Social Work",
   ];
-  const [selectedIndustry, setSelectedIndustry] = useState([]);
+ 
   const handleChangeIndustry = (e) => {
-    setSelectedIndustry(e.target.value);
+    setFormData({...formData, "industry": e.target.value})
   };
 
   return (
     <div>
       <div className="industry-dropdown">
         <h1>What industry are you in?</h1>
-        <select value={selectedIndustry} onChange={handleChangeIndustry}>
+        <select value={formData.industry} onChange={handleChangeIndustry}>
           <option value="">Select your Industry</option>
           {industry.map((industry) => (
-            <option key={industry} value={industry}>
+            <option key={industry} value={industry} onChange={handleChangeIndustry}>
               {industry}
             </option>
           ))}
         </select>
-        <p>Selected industry: {selectedIndustry}</p>
       </div>
     </div>
   );
