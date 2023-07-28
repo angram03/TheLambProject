@@ -15,11 +15,41 @@ import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import UserPreference from "./Components/UserPreferenceForm/UserPreferenceForm";
 import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
-
-
+import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
 
 const App = () => {
   const [appState, setAppState] = useState({});
+
+  const [likedCityCount, setLikedCityCount] = useState(0);
+  const [number, setNumber] = useState(1);
+  const [lastDirection, setLastDirection] = useState();
+  const [cities, setCities] = useState([]);
+  const [allCities, setAllCities] = useState([]);
+
+  const swiped = (direction, nameToDelete) => {
+    setAllCities([...allCities, nameToDelete]);
+    console.log("allCitites", allCities);
+    console.log("removing:" + nameToDelete);
+
+    if (direction == "right") {
+      setNumber(number + 1);
+      setCities([...cities, nameToDelete]);
+    }
+    if (direction == "down" || direction == "up") {
+      restoreCard();
+      preventSwipe(direction);
+      //so I have the city name right, I want to try to put it back where it was,
+      // how do I control that, when I swipe, how does the slide get out of the page.
+    }
+    console.log("Number", number);
+
+    setLastDirection(direction);
+  };
+  console.log("Cities", cities);
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen");
+  };
+
   const [formData, setFormData] = useState({
     state: "",
     industry: "",
@@ -27,34 +57,52 @@ const App = () => {
     weather: "",
   });
 
-
   return (
     <div>
       <BrowserRouter>
         <div>
-          <Navbar likedCityCount={likedCityCount} />
+          <Navbar likedCityCount={likedCityCount} cities={cities} />
           <div>
             <Routes>
               <Route path="/" element={<WelcomePage />} />
               <Route path="/about" element={<AboutPage />} exact />
-              <Route
-              path="/login"
-              element={<LoginForm setAppState={setAppState} />}
-            />
-            <Route
-              path="/register"
-              element={<RegisterCard setAppState={setAppState} />}
-            />
-            <Route
-              path="/userpreferences"
-              element={<UserPreference setAppState={setAppState} setFormData={setFormData} formData={formData}/>}
-            />
-            <Route 
-              path="/matchedcitycards"
-              element={<MatchedCityPage formData={formData}/>}
-            
-            />
 
+              <Route
+                path="/matchedcity"
+                element={
+                  <MatchedCityPage
+                    swiped={swiped}
+                    outOfFrame={outOfFrame}
+                    lastDirection={lastDirection}
+                    formData={formData}
+                  />
+                }
+              />
+              <Route
+                path="/matchedcitieslist"
+                element={<MatchedCitiesList cities={cities} />}
+              />
+              <Route
+                path="/login"
+                element={<LoginForm setAppState={setAppState} />}
+              />
+              <Route
+                path="/register"
+                element={<RegisterCard setAppState={setAppState} />}
+              />
+              <Route
+                path="/userpreferences"
+                element={
+                  <UserPreference
+                    swiped={swiped}
+                    outOfFrame={outOfFrame}
+                    lastDirection={lastDirection}
+                    setAppState={setAppState}
+                    setFormData={setFormData}
+                    formData={formData}
+                  />
+                }
+              />
             </Routes>
           </div>
         </div>

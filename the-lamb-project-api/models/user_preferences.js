@@ -37,12 +37,9 @@ class User_Preference {
             Culinary,
             Social_Work,
             Hobby,
-            Low,
-            High,
-            Average,
             Images
           )
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
           RETURNING *;
         `,
           [
@@ -55,9 +52,6 @@ class User_Preference {
             jsonData.Culinary,
             jsonData.Social_Work,
             jsonData.Hobby,
-            jsonData.Low,
-            jsonData.High,
-            jsonData.Average,
             jsonData.Images,
           ]
         );
@@ -83,10 +77,9 @@ class User_Preference {
     return data;
   }
 
-
-  static async gettingData({preference}) {
+  static async gettingData(preference) {
     const requiredField = ["state", "hobbies", "industry", "weather"];
-    console.log(preference)
+    console.log(preference);
 
     requiredField.forEach((field) => {
       if (!preference.hasOwnProperty(field)) {
@@ -94,7 +87,7 @@ class User_Preference {
       }
     });
     const columnName = preference.industry;
-    console.log("industry: ", preference.industry)
+    console.log("industry: ", preference.industry);
     const query = `
     SELECT * FROM users_preference 
       WHERE state = $1 OR Hobby = $2 OR ${columnName} = true
@@ -103,10 +96,7 @@ class User_Preference {
           CASE WHEN Hobby = $2 THEN 0 ELSE 1 END;
   
       `;
-    const result = await db.query(query, [
-      preference.state,
-      preference.hobby,
-    ]);
+    const result = await db.query(query, [preference.state, preference.hobby]);
     const user = result.rows;
     return user;
   }

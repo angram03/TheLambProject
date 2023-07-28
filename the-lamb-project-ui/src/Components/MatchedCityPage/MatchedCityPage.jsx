@@ -1,36 +1,48 @@
 import React from "react";
 
 import "./MatchedCityPage.css";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import MatchedCityCard from "../MatchedCityCard/MatchedCityCard";
 
-const MatchedCityPage = ({formData}) => {
+// import "../../Icons/accept.png";
+const MatchedCityPage = ({ swiped, outOfFrame, lastDirection, formData }) => {
+  const [cityCard, setCityCard] = useState("");
+  console.log("The formdata is.. ");
+  console.log(formData);
 
-  const [cityCard, setCityCard] = useState("")
-  useEffect (() => {
-    cityAPICall()
+  useEffect(() => {
+    console.log("calling useEffect");
+    try {
+      axios
+        .post("http://localhost:3001/user/personal_preference", { formData })
+        .then((response) => {
+          setCityCard(response.data);
+          console.log("response.data from matchedcity: ");
+          console.log(response.data);
+        });
+    } catch (error) {
+      // error handling, won't crash your code
+      console.log("ERROR", error);
+    }
+    console.log("test");
+  }, []);
 
- }, []) 
- async function cityAPICall(){
-   try {
-     const result = await axios.post("http://localhost:3001/city/matchedcitycards", {formData}) //
-     console.log(result?.data) //response from the post request
-     setCityCard(result?.data)
-   } catch (error) { // error handling, won't crash your code
-     console.log(error)
-     
-   }
- }
+  console.log("city page", cityCard);
   return (
     <div>
-      <MatchedCityCard AcceptCity={AcceptCity}/>
+      {cityCard !== "" ? (
+        <MatchedCityCard
+          swiped={swiped}
+          outOfFrame={outOfFrame}
+          lastDirection={lastDirection}
+          cityCard={cityCard}
+        />
+      ) : (
+        "CityCard is empty"
+      )}
     </div>
-  )
-  
-  
- 
-
+  );
 };
 
 export default MatchedCityPage;
