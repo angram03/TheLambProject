@@ -27,7 +27,13 @@ const db = [
   },
 ];
 
-const MatchedCityCard = ({ swiped, outOfFrame, lastDirection, cityCard }) => {
+const MatchedCityCard = ({
+  swiped,
+  outOfFrame,
+  lastDirection,
+  cityCard,
+  swipe,
+}) => {
   console.log("Citycaard");
   console.log(cityCard);
   const [preferedCitiesList, setPreferedCitiesList] = useState([]);
@@ -70,10 +76,10 @@ const MatchedCityCard = ({ swiped, outOfFrame, lastDirection, cityCard }) => {
         ))}
       </div>
       <div className="tinder--buttons content-center	">
-        <button id="nope" className="nope">
+        <button onClick={() => swipe("left")} id="nope" className="nope">
           <i className="fa fa-remove"></i>
         </button>
-        <button id="love">
+        <button onClick={() => swipe("right")} id="love">
           <i className="fa fa-heart heart"></i>
         </button>
       </div>

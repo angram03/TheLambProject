@@ -25,6 +25,10 @@ const App = () => {
   const [lastDirection, setLastDirection] = useState();
   const [cities, setCities] = useState([]);
   const [allCities, setAllCities] = useState([]);
+  const swipe = async (dir) => {
+    // await
+    console.log(dir);
+  };
 
   const swiped = (direction, nameToDelete) => {
     setAllCities([...allCities, nameToDelete]);
@@ -71,6 +75,7 @@ const App = () => {
                 path="/matchedcity"
                 element={
                   <MatchedCityPage
+                    swipe={swipe}
                     swiped={swiped}
                     outOfFrame={outOfFrame}
                     lastDirection={lastDirection}
