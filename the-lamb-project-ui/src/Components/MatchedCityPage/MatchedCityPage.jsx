@@ -6,7 +6,13 @@ import axios from "axios";
 import MatchedCityCard from "../MatchedCityCard/MatchedCityCard";
 
 // import "../../Icons/accept.png";
-const MatchedCityPage = ({ swiped, outOfFrame, lastDirection, formData }) => {
+const MatchedCityPage = ({
+  swiped,
+  outOfFrame,
+  lastDirection,
+  formData,
+  swipe,
+}) => {
   const [cityCard, setCityCard] = useState("");
   console.log("The formdata is.. ");
   console.log(formData);
@@ -33,6 +39,7 @@ const MatchedCityPage = ({ swiped, outOfFrame, lastDirection, formData }) => {
     <div>
       {cityCard !== "" ? (
         <MatchedCityCard
+          swipe={swipe}
           swiped={swiped}
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
