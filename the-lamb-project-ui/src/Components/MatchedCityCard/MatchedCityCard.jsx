@@ -69,7 +69,7 @@ const MatchedCityCard = ({
               className="card"
             >
               <h3 className="NameTag">
-                <center>{character.state}</center>
+                <center>{character.city + ", " + character.state} </center>
               </h3>
             </div>
           </TinderCard>

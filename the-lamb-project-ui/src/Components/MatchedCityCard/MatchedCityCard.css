@@ -13,27 +13,28 @@
 .cardContainer {
   height: 700px;
   max-width: 600px;
-  display: block;
+  /* display: block; */
   position: relative;
   margin: 0 auto;
   border: 8px groove #5995ed;
   background-color: #b1a205;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   overflow: hidden;
-  /* padding: 10px; */
-  /* box-shadow: 5px 10px; */
+}
+img {
+  object-fit: cover;
 }
 
 .card {
   min-height: 100%;
+  /* max-height: 100%; */
   /* min-width: 100%; */
-  object-fit: fill;
-  object-position: bottom;
+  background-color: #f2bb05;
+  background-position: center;
+
   border: 1px solid;
   background-repeat: no-repeat;
-  /* padding: 10px; */
+  padding: 10px;
 
   /* box-shadow: 5px 10px; */
 }
