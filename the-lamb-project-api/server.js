@@ -6,7 +6,7 @@ const { PORT } = require('./config');
 const authRoutes = require('./routes/auth');
 const userPreferenceRoutes = require('./routes/user_preference');
 const security = require('./middleware/security.js');
-const axios = require('axios'); // Make sure this line is present
+const axios = require('axios');
 
 const app = express();
 
