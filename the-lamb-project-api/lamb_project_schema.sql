@@ -20,3 +20,11 @@ CREATE TABLE users_preference(
     Average INTEGER NOT NULL,
     Images TEXT NOT NULL
 );
+-- CREATE TABLE city_scores (
+--   id SERIAL PRIMARY KEY,
+--   city_name TEXT NOT NULL,
+--   scores JSONB NOT NULL,
+--   summary TEXT NOT NULL,
+--   -- Add other columns for each info stuff 
+--   created_at TIMESTAMP DEFAULT NOW()
+-- );
