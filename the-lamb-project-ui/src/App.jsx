@@ -13,24 +13,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import RegisterCard from "./Components/RegisterCard/RegisterCard";
 import LoginForm from "./Components/LoginForm/LoginForm";
-import UserPreference from "./Components/UserPreference/UserPreference";
+import UserPreference from "./Components/UserPreferenceForm/UserPreferenceForm";
 import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
 import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
-import MatchedCityListPage from "./Components/MatchedCityPage/MatchedCityPage";
 
 const App = () => {
   const [appState, setAppState] = useState({});
+
   const [likedCityCount, setLikedCityCount] = useState(0);
   const [number, setNumber] = useState(1);
   const [lastDirection, setLastDirection] = useState();
   const [cities, setCities] = useState([]);
   const [allCities, setAllCities] = useState([]);
 
-  const AcceptCity = (event) => {
-    setLikedCityCount(likedCityCount + 1);
-    console.log(likedCityCount);
-    console.log("Accept");
-  };
   const swiped = (direction, nameToDelete) => {
     setAllCities([...allCities, nameToDelete]);
     console.log("allCitites", allCities);
@@ -55,6 +50,13 @@ const App = () => {
     console.log(name + " left the screen");
   };
 
+  const [formData, setFormData] = useState({
+    state: "",
+    industry: "",
+    hobbies: "",
+    weather: "",
+  });
+
   return (
     <div>
       <BrowserRouter>
@@ -64,6 +66,22 @@ const App = () => {
             <Routes>
               <Route path="/" element={<WelcomePage />} />
               <Route path="/about" element={<AboutPage />} exact />
+
+              <Route
+                path="/matchedcity"
+                element={
+                  <MatchedCityPage
+                    swiped={swiped}
+                    outOfFrame={outOfFrame}
+                    lastDirection={lastDirection}
+                    formData={formData}
+                  />
+                }
+              />
+              <Route
+                path="/matchedcitieslist"
+                element={<MatchedCitiesList cities={cities} />}
+              />
               <Route
                 path="/login"
                 element={<LoginForm setAppState={setAppState} />}
@@ -74,22 +92,16 @@ const App = () => {
               />
               <Route
                 path="/userpreferences"
-                element={<UserPreference setAppState={setAppState} />}
-              />
-              <Route
-                path="/matchedcity"
                 element={
-                  <MatchedCityPage
-                    AcceptCity={AcceptCity}
+                  <UserPreference
                     swiped={swiped}
                     outOfFrame={outOfFrame}
                     lastDirection={lastDirection}
+                    setAppState={setAppState}
+                    setFormData={setFormData}
+                    formData={formData}
                   />
                 }
-              />
-              <Route
-                path="/matchedcitieslist"
-                element={<MatchedCitiesList cities={cities} />}
               />
             </Routes>
           </div>

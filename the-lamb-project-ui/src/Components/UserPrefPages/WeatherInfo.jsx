@@ -1,8 +1,8 @@
 import React from "react";
-import { useState } from "react";
 
 
-const WeatherInfo = () => {
+
+const WeatherInfo = ({formData, setFormData}) => {
   const seasonalWeather = [
     " warm winter ❄️🌞",
     " cold winter ❄️🥶",
@@ -20,7 +20,7 @@ const WeatherInfo = () => {
       <div className="list-container2">
         {seasonalWeather.map((item, index) => (
           <div key={index}>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={() => {setFormData({...formData, "weather": item})}} checked={item === formData.weather}  />
             <span>{item}</span>
           </div>
         ))}
@@ -30,3 +30,4 @@ const WeatherInfo = () => {
 };
 
 export default WeatherInfo;
+

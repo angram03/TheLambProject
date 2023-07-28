@@ -27,30 +27,14 @@ const db = [
   },
 ];
 
-const MatchedCityCard = ({ AcceptCity, swiped, outOfFrame, lastDirection }) => {
+const MatchedCityCard = ({ swiped, outOfFrame, lastDirection, cityCard }) => {
+  console.log("Citycaard");
+  console.log(cityCard);
   const [preferedCitiesList, setPreferedCitiesList] = useState([]);
   const [empty, setEmpty] = useState(false);
-  const characters = db;
-  // try {
-  //   axios.get("http://localhost:3001/user/preferences").then((response) => {
-  //     console.log(response.data);
-  //     setPreferedCitiesList(response.data);
-  //   });
-  // } catch (err) {
-  //   console.log(err);
-  // }
-  // console.log(preferedCitiesList);
+  const characters = cityCard;
 
-  // try{
-  //   const res = await axios.get(`http://localhost:3001/user/preferences`,{
-
-  //   })
-
-  // }catch (err){
-
-  //   console.log(err)
-
-  // }
+  //Ask angelica to put important on the user preference.
 
   return (
     <div className="MatchedCityCardBg">
@@ -67,19 +51,19 @@ const MatchedCityCard = ({ AcceptCity, swiped, outOfFrame, lastDirection }) => {
         <center>Matched Cities</center>
       </h1> */}
       <div className="cardContainer">
-        {characters.map((character) => (
+        {characters.pers_preference.map((character) => (
           <TinderCard
             className="swipe"
             key={character.name}
-            onSwipe={(dir) => swiped(dir, character.name)}
-            onCardLeftScreen={() => outOfFrame(character.name)}
+            onSwipe={(dir) => swiped(dir, character.state)}
+            onCardLeftScreen={() => outOfFrame(character.state)}
           >
             <div
-              style={{ backgroundImage: "url(" + character.url + ")" }}
+              style={{ backgroundImage: "url(" + character.images + ")" }}
               className="card"
             >
               <h3 className="NameTag">
-                <center>{character.name}</center>
+                <center>{character.state}</center>
               </h3>
             </div>
           </TinderCard>

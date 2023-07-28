@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 
-const HobbyInfo = () => {
+const HobbyInfo = ({formData, setFormData}) => {
 
 
   const hobbies = [
@@ -46,7 +46,7 @@ const HobbyInfo = () => {
 
   return (
     <div>
-      {/* //hobbies checklist */}
+     
       <div className="checkList">
         <h1>What is your favorite hobby?</h1>
         <div className="title">
@@ -55,7 +55,7 @@ const HobbyInfo = () => {
         <div className="list-container">
           {hobbies.map((item, index) => (
             <div key={index}>
-              <input type="checkbox" />
+              <input type="checkbox" onChange={() => {setFormData({...formData, "hobbies": item})}}  checked={item === formData.hobbies} />
               <span>{item}</span>
             </div>
           ))}
@@ -66,3 +66,5 @@ const HobbyInfo = () => {
 };
 
 export default HobbyInfo;
+
+
