@@ -60,12 +60,17 @@ const App = () => {
     hobbies: "",
     weather: "",
   });
+  const [inCardMatched, setInCardMathed] = useState(false);
 
   return (
     <div>
       <BrowserRouter>
         <div>
-          <Navbar likedCityCount={likedCityCount} cities={cities} />
+          <Navbar
+            likedCityCount={likedCityCount}
+            cities={cities}
+            inCardMatched={inCardMatched}
+          />
           <div>
             <Routes>
               <Route path="/" element={<WelcomePage />} />
@@ -80,6 +85,7 @@ const App = () => {
                     outOfFrame={outOfFrame}
                     lastDirection={lastDirection}
                     formData={formData}
+                    inCardMatched={inCardMatched}
                   />
                 }
               />
@@ -99,6 +105,7 @@ const App = () => {
                 path="/userpreferences"
                 element={
                   <UserPreference
+                    swipe={swipe}
                     swiped={swiped}
                     outOfFrame={outOfFrame}
                     lastDirection={lastDirection}

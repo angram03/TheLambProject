@@ -4,29 +4,6 @@ import "./MatchedCityCard.css";
 import axios from "axios";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-const db = [
-  {
-    name: "Richard Hendricks",
-    url: "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    name: "Erlich Bachman",
-    url: "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    name: "Monica Hall",
-    url: "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    name: "Jared Dunn",
-    url: "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    name: "Dinesh Chugtai",
-    url: "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-  },
-];
-
 const MatchedCityCard = ({
   swiped,
   outOfFrame,
@@ -38,6 +15,7 @@ const MatchedCityCard = ({
   console.log(cityCard);
   const [preferedCitiesList, setPreferedCitiesList] = useState([]);
   const [empty, setEmpty] = useState(false);
+  // const reverseCard = cityCard.reverse
   const characters = cityCard;
 
   //Ask angelica to put important on the user preference.
@@ -57,23 +35,26 @@ const MatchedCityCard = ({
         <center>Matched Cities</center>
       </h1> */}
       <div className="cardContainer">
-        {characters.pers_preference.map((character) => (
-          <TinderCard
-            className="swipe"
-            key={character.name}
-            onSwipe={(dir) => swiped(dir, character.state)}
-            onCardLeftScreen={() => outOfFrame(character.state)}
-          >
-            <div
-              style={{ backgroundImage: "url(" + character.images + ")" }}
-              className="card"
+        {characters.pers_preference
+          .slice()
+          .reverse()
+          .map((character) => (
+            <TinderCard
+              className="swipe"
+              key={character.name}
+              onSwipe={(dir) => swiped(dir, character.state)}
+              onCardLeftScreen={() => outOfFrame(character.state)}
             >
-              <h3 className="NameTag">
-                <center>{character.city + ", " + character.state} </center>
-              </h3>
-            </div>
-          </TinderCard>
-        ))}
+              <div
+                style={{ backgroundImage: "url(" + character.images + ")" }}
+                className="card"
+              >
+                <h3 className="NameTag">
+                  <center>{character.city + ", " + character.state} </center>
+                </h3>
+              </div>
+            </TinderCard>
+          ))}
       </div>
       <div className="tinder--buttons content-center	">
         <button onClick={() => swipe("left")} id="nope" className="nope">
