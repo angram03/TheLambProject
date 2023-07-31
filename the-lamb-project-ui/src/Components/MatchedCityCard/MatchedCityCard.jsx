@@ -3,7 +3,6 @@ import TinderCard from "react-tinder-card";
 import "./MatchedCityCard.css";
 import axios from "axios";
 
-
 const db = [
   {
     name: "Richard Hendricks",
