@@ -6,7 +6,8 @@ const { PORT } = require("./config");
 const authRoutes = require("./routes/auth");
 const userPreferenceRoutes = require("./routes/user_preference");
 const security = require("./middleware/security.js");
-// const axios = require("axios");
+const axios = require("axios");
+const weatherRoute = require("./routes/weatherRoute");
 
 const app = express();
 
@@ -42,22 +43,6 @@ app.get("/", function (req, res) {
 //     res.status(500).json({ error: 'Internal Server Error' });
 //   }
 // });
-
-app.use((req, res, next) => {
-  return next(new NotFoundError());
-});
-
-app.use(function (req, res, next) {
-  return next(new NotFoundError());
-});
-
-app.use((err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message;
-  return res.status(status).json({
-    error: { message, status },
-  });
-});
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

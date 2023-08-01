@@ -31,6 +31,7 @@ const App = () => {
   const [inCardMatched, setInCardMatched] = useState(false);
   // const currentIndexRef = useRef(currentIndex)
   // const childRefs = 0;
+
   const swipe = async (dir) => {
     // await
     // console.log(childRefs[0]);
