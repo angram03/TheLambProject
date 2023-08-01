@@ -21,6 +21,9 @@ import Weather from "./Components/Weather/Weather";
 
 const App = () => {
   const [appState, setAppState] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  
 
   const [likedCityCount, setLikedCityCount] = useState(0);
   const [number, setNumber] = useState(1);
@@ -99,6 +102,8 @@ const App = () => {
             likedCityCount={likedCityCount}
             cities={cities.length}
             inCardMatched={inCardMatched}
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
           />
           <div>
             <Routes>
@@ -129,11 +134,11 @@ const App = () => {
               />
               <Route
                 path="/login"
-                element={<LoginForm setAppState={setAppState} />}
+                element={<LoginForm setAppState={setAppState} setIsLoggedIn={setIsLoggedIn}/>}
               />
               <Route
                 path="/register"
-                element={<RegisterCard setAppState={setAppState} />}
+                element={<RegisterCard setAppState={setAppState} setIsLoggedIn={setIsLoggedIn}/>}
               />
               <Route
                 path="/userpreferences"
