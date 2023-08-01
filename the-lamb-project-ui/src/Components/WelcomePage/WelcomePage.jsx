@@ -5,13 +5,16 @@ import WelcomeGrid from "../WelcomeGrid/WelcomeGrid";
 import Destinations from "../Destinations/Destinations";
 import ContactUs from "../ContactUs/ContactUs";
 import Footer from "../Footer/Footer";
+import Chatbot from "../ChatBot/ChatBot";
 
 const WelcomePage = () => {
   return (
     <div>
+      <Chatbot/>
       <Hero />
       <SearchBar />
       <WelcomeGrid />
+      <Chatbot/>
       <Destinations/>
       <ContactUs />
       <Footer />

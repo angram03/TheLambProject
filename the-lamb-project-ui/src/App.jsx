@@ -16,6 +16,8 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 import UserPreference from "./Components/UserPreferenceForm/UserPreferenceForm";
 import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
 import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
+import CityScores from "./Components/CityScores/CityScores";
+import Weather from "./Components/Weather/Weather";
 
 const App = () => {
   const [appState, setAppState] = useState({});
@@ -147,6 +149,8 @@ const App = () => {
                   />
                 }
               />
+              <Route path="/cityscores" element={<CityScores/>}/>
+              <Route path="/weather" element={<Weather/>}/>
             </Routes>
           </div>
         </div>
