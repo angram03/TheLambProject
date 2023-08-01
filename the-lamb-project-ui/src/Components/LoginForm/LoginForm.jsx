@@ -50,34 +50,39 @@ export default function LoginForm({ setAppState }) {
       setIsLoading(false)
     }
   }
-
+// mt-10 sm:mx-auto sm:w-full sm:max-w-sm
+//bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4
   return (
-    <div className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#044389]">
-   
-       <div>
-        
-       </div>
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#044389]">Login to the Portal</h2>
+    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+     <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#044389]">Login Here</h2>
+        <br />
 
-        
+        <img
+        className="mx-auto h-10 w-auto"
+        src="images/sheep.png"
+        alt="Your Company">
+          
+        </img>
+
+        <br />
 
         <div className="space-y-6" action="#" method="POST">
           <div className="input-field">
-            <label className="block text-sm font-medium leading-6 text-gray-900"htmlFor="email">Email</label>
+            <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor="email">Email Address:</label>
             <input
               type="email"
               name="email"
               placeholder="email"
               value={form.email}
               onChange={handleOnInputChange}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 pl-[14px] focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
 
           <div className="input-field">
-            <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor="password">Password</label>
+            <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor="password">Password:</label>
             <div className="mt-2">
             <input
               type="password"
@@ -85,7 +90,7 @@ export default function LoginForm({ setAppState }) {
               placeholder="Password"
               value={form.password}
               onChange={handleOnInputChange}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 pl-[14px] focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
             </div>
             
@@ -96,10 +101,9 @@ export default function LoginForm({ setAppState }) {
             {isLoading ? "Loading..." : "Login"}
           </button>
         </div>
-
         <div className="footer">
           <p className="mt-10 text-center text-sm text-[#044389]">
-            Don't have an account? Sign up <Link to="/register">here</Link>
+            Don't have an account? <Link to="/register"> Sign up here</Link>
           </p>
         </div>
       </div>
