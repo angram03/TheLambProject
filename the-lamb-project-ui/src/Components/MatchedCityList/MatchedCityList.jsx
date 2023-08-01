@@ -19,7 +19,7 @@ const MatchedCitiesList = ({ cities, changeValue }) => {
             <p className="ml-7 mt-2">{city}</p>
             <button
               onClick={() => handleDelete(city)}
-              onKeyDown={() => changeValue(city)}
+              onMouseDown={() => changeValue(city)}
               className="  bg-transparent hover:bg-[#FF0000] text-red-700 font-semibold hover:text-white py-2 px-4 border-blue-500 hover:border-transparent rounded text-2xl"
             >
               x

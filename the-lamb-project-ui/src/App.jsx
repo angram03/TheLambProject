@@ -24,6 +24,7 @@ const App = () => {
   const [number, setNumber] = useState(1);
   const [lastDirection, setLastDirection] = useState();
   const [cities, setCities] = useState([]);
+  const [citiesSize, setCitiesSize] = useState(0);
   const [allCities, setAllCities] = useState([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,6 +62,7 @@ const App = () => {
     if (direction == "right") {
       setNumber(number + 1);
       setCities([...cities, nameToDelete]);
+      setCitiesSize(cities.length);
     }
     if (direction == "down" || direction == "up") {
       restoreCard();
@@ -85,6 +87,8 @@ const App = () => {
   });
   const changeValue = (city) => {
     console.log("BIG CITY", city);
+    setCitiesSize(citiesSize - 1);
+
     // const newList = cities.filter((item) => item !== city);
     // setCities(newList);
   };
@@ -95,7 +99,7 @@ const App = () => {
         <div>
           <Navbar
             likedCityCount={likedCityCount}
-            cities={cities.length}
+            citiesSize={citiesSize}
             inCardMatched={inCardMatched}
           />
           <div>
