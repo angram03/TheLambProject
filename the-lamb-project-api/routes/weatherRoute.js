@@ -1,75 +1,60 @@
 const express = require('express');
 const axios = require('axios');
-const { Client } = require('pg');
-
 const router = express.Router();
 
-const port = process.env.PORT || 3001;
+router.get('/historical-weather', async (req, res) => {
+  const { city } = req.query;
 
-// Function to fetch weather data from OpenWeatherMap API
-async function getWeatherData(city, state, country) {
   try {
-    const apiKey = '6d9bb527829de168b17822b9e0e01291'; // Replace with your OpenWeatherMap API key
+    console.log("Request reached the weather route.");
+    console.log("City:", city);
 
-    // Step 1: Use Direct Geocoding API to get geographic coordinates
-    const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${apiKey}`;
-    const geoResponse = await axios.get(geoUrl);
+    const apiKey = '5979ce1951a2979902493bf710be9f6c';
+    const endDate = new Date().toISOString().split('T')[0];
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 1);
+    const formattedStartDate = startDate.toISOString().split('T')[0];
 
-    if (geoResponse.data.length === 0) {
-      throw new Error('Location not found.');
+    const apiUrl = `http://api.weatherstack.com/historical?access_key=${apiKey}&query=${city}&historical_date_start=${formattedStartDate}&historical_date_end=${endDate}&units=f`;
+
+    console.log("API URL:", apiUrl);
+
+    const response = await axios.get(apiUrl);
+    const historicalData = response.data.historical;
+
+    // Check if historical weather data exists in the API response
+    if (!historicalData || Object.keys(historicalData).length === 0) {
+      throw new Error('No historical weather data found in the API response');
     }
 
-    // Extract latitude and longitude from the Direct Geocoding API response
-    const { lat, lon } = geoResponse.data[0];
+    let totalMinTemp = 0;
+    let totalMaxTemp = 0;
+    let count = 0;
 
-    // Step 2: Use the retrieved coordinates in Current Weather Data API
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    const weatherResponse = await axios.get(weatherUrl);
+    // Calculate today's average, minimum, and maximum temperatures
+    for (const date in historicalData) {
+      if (historicalData.hasOwnProperty(date)) {
+        const { mintemp, maxtemp } = historicalData[date];
+        totalMinTemp += mintemp;
+        totalMaxTemp += maxtemp;
+        count++;
+      }
+    }
 
-    // Extract the necessary weather data from the response
-    const weatherData = {
+    const todayAvgTemp = count > 0 ? totalMinTemp / count : 0;
+    const todayMinTemp = count > 0 ? totalMinTemp / count : 0;
+    const todayMaxTemp = count > 0 ? totalMaxTemp / count : 0;
+
+    res.json({
       city,
-      state,
-      country,
-      temperature: weatherResponse.data.main.temp,
-      humidity: weatherResponse.data.main.humidity,
-      wind_speed: weatherResponse.data.wind.speed,
-    };
-
-    return weatherData;
+      todayAvgTemp,
+      todayMinTemp,
+      todayMaxTemp,
+    });
   } catch (error) {
-    throw new Error('Error fetching weather data: ' + error.message);
-  }
-}
-
-// Define route for fetching weather data
-router.get('/api/weather/:city/:state/:country', async (req, res, next) => {
-  try {
-    console.log('Fetching weather data!!!');
-
-    const { city, state, country } = req.params;
-
-    // Fetch weather data using Axios and OpenWeatherMap API
-    const weatherData = await getWeatherData(city, state, country);
-
-    // Send weather data in the response
-    return res.status(200).json(weatherData);
-  } catch (err) {
-    console.error('Error fetching weather data:', err.message);
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('Error fetching today\'s weather data:', error.message);
+    res.status(500).json({ error: 'Failed to fetch today\'s weather data' });
   }
 });
-
-// Define route for saving weather data to the database
-router.post('/api/weather', async (req, res) => {
-  const { city, state, country, temperature, humidity, wind_speed } = req.body;
-  // Save weather data to the database using the pg library
-  // ...
-
-  // Send response indicating success or failure
-  // ...
-});
-
-// ...
 
 module.exports = router;

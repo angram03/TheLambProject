@@ -8,13 +8,10 @@ const WelcomeGrid = () => {
           ⚡ Personalized Recommendations ⚡
         </h2>
         <p>
-          One of the primary benefits of LAMB is providing users with
-          personalized city recommendations that align with their preferences,
-          hobbies, values, and lifestyle. By understanding your specific
-          preferences, such as desired neighborhood characteristics, safety
-          considerations, and nearby amenities, LAMB can offer tailored
-          suggestions that suit your unique needs. This all in one app saves
-          precious time that can be used to explore your ideal city.
+          Explore your ideal city effortlessly with LAMB! Benefit from
+          personalized recommendations tailored to your preferences, covering
+          neighborhood characteristics, safety, and nearby amenities. This all in one web app saves precious time that can be used to
+          explore your ideal city.
         </p>
       </div>
 
@@ -23,13 +20,10 @@ const WelcomeGrid = () => {
           🧠 Improved Decision-Making and Safety 🧠
         </h2>
         <p>
-          With access to information about neighborhood safety and other crucial
-          aspects of the area, users can make more informed decisions about
-          their housing choices. This ensures that you select a safe and secure
-          living environment, promoting a sense of confidence and peace of mind
-          during the relocation process. Being well-informed about the
-          neighborhood's features helps you avoid potential risks and make
-          choices that align with your safety preferences.
+          Discover peace of mind and confidence in your relocation process with
+          LAMB! Gain access to vital information about neighborhood safety and
+          other crucial aspects of the area. Choose a safe and secure living
+          environment, knowing that LAMB has your back every step of the way.
         </p>
       </div>
 
@@ -38,13 +32,10 @@ const WelcomeGrid = () => {
           🌐 Enhanced Integration and Community Engagement 🌐
         </h2>
         <p>
-          As young adults relocate to new cities or states, they often seek ways
-          to integrate into their new communities and build social connections.
-          LAMB can assist in this process by offering resources to connect with
-          local communities, social events, and nearby attractions. By
-          facilitating community engagement, LAMB fosters a smoother transition
-          to the new environment, helping you establish a sense of belonging and
-          familiarity more quickly.
+          Experience a seamless transition and forge meaningful connections in
+          your new community with LAMB! Let us help you integrate into your
+          surroundings, fostering a sense of belonging and familiarity that will
+          make you feel right at home from day one.
         </p>
       </div>
     </div>
