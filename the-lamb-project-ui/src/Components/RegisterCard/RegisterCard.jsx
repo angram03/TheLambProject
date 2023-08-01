@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
-export default function RegisterCard({ setAppState }) {
+export default function RegisterCard({ setAppState, setIsLoggedIn }) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -69,6 +69,7 @@ export default function RegisterCard({ setAppState }) {
         setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
         setIsLoading(false)
       }
+      setIsLoggedIn(true)
     } catch (err) {
       console.log(err)
       const message = err?.response?.data?.error?.message
