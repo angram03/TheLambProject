@@ -3,20 +3,21 @@ import axios from 'axios';
 
 const CityScores = () => {
   const [cityName, setCityName] = useState('');
-  const [scores, setScores] = useState(null);
+  const [scores, setScores] = useState([]);
   const [summary, setSummary] = useState('');
 
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:3001/api/city/${cityName.trim().toLowerCase()}/scores`);
+      const formattedCityName = cityName.replace(/\s+/g, '-').toLowerCase();
+      const response = await axios.get(`http://localhost:3001/api/city/${formattedCityName}/scores`);
       const responseData = response.data;
       setCityName(responseData._links?.ua?.name || '');
       setScores(responseData.categories || []);
       setSummary(responseData.summary || '');
     } catch (error) {
       console.error('Error fetching city scores:', error.message);
-      setScores(null);
+      setScores([]);
       setSummary('');
     }
   };
@@ -55,7 +56,7 @@ const CityScores = () => {
           Search
         </button>
       </form>
-      {scores ? (
+      {scores.length > 0 ? (
         <div>
           <h1 className="text-3xl font-bold mb-4">{cityName} City Scores</h1>
           <div className="flex overflow-x-auto pb-4">
