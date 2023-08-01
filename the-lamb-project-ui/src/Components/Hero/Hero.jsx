@@ -25,7 +25,7 @@ const Hero = () => {
       {/* relative sets positioning for its children and allows to position the text inside it */}
       {/* z-10 determines the stacking order of elements since it is a higher z index, we ensure the text appears on top of the video background */}
       <div className="relative z-10 ">
-        <h2 className="pb-3 text-8xl text-white">Your Trip Advisor</h2>
+        <h2 className="pb-3 text-8xl text-white">Your Travel Advisor</h2>
         <h3 className="pb-3 text-5xl text-white">
           From Occupation to Exploration, Let Us Reveal Your Dream City!
         </h3>
