@@ -27,3 +27,16 @@
   font-size: xx-large;
   margin: auto;
 }
+/* .border {
+  height: 700px;
+  max-width: 600px;
+
+  position: relative;
+  margin: 0 auto;
+  border: 8px groove #5995ed;
+  background-color: #b1a205;
+  overflow: hidden;
+} */
+p {
+  font-size: larger;
+}

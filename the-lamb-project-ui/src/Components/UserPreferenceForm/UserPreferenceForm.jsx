@@ -13,6 +13,7 @@ const UserPreferenceForm = ({
   lastDirection,
   formData,
   setFormData,
+  swipe,
 }) => {
   // const navigate = useNavigate();
 
@@ -96,11 +97,14 @@ const UserPreferenceForm = ({
           </div>
         </div>
       ) : (
+        // navigate("")
+        // <Navigate to="/matchedcity" />
         <MatchedCityPage
           swiped={swiped}
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
           formData={formData}
+          swipe={swipe}
         />
       )}
     </div>

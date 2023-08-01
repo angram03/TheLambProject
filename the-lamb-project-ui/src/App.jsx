@@ -25,16 +25,38 @@ const App = () => {
   const [lastDirection, setLastDirection] = useState();
   const [cities, setCities] = useState([]);
   const [allCities, setAllCities] = useState([]);
-  
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const [inCardMatched, setInCardMatched] = useState(false);
+  // const currentIndexRef = useRef(currentIndex)
+  // const childRefs = 0;
+
   const swipe = async (dir) => {
     // await
+    // console.log(childRefs[0]);
+
+    console.log(currentIndex);
+    console.log("CURRENT INDEX", currentIndex);
     console.log(dir);
   };
 
-  const swiped = (direction, nameToDelete) => {
+  const swiped = (
+    direction,
+    nameToDelete,
+    index,
+    pers_preference,
+    houseVisible
+  ) => {
+    console.log("APP.JSX", pers_preference.pers_preference.length);
+    setIndex(index + 1);
+    setCurrentIndex(pers_preference.pers_preference.length);
+    console.log("HOUSE VISIBLE", houseVisible);
+    setInCardMatched(houseVisible);
     setAllCities([...allCities, nameToDelete]);
     console.log("allCitites", allCities);
     console.log("removing:" + nameToDelete);
+    console.log(index);
 
     if (direction == "right") {
       setNumber(number + 1);
@@ -61,12 +83,21 @@ const App = () => {
     hobbies: "",
     weather: "",
   });
+  const changeValue = (city) => {
+    console.log("BIG CITY", city);
+    // const newList = cities.filter((item) => item !== city);
+    // setCities(newList);
+  };
 
   return (
     <div>
       <BrowserRouter>
         <div>
-          <Navbar likedCityCount={likedCityCount} cities={cities} />
+          <Navbar
+            likedCityCount={likedCityCount}
+            cities={cities.length}
+            inCardMatched={inCardMatched}
+          />
           <div>
             <Routes>
               <Route path="/" element={<WelcomePage />} />
@@ -81,12 +112,18 @@ const App = () => {
                     outOfFrame={outOfFrame}
                     lastDirection={lastDirection}
                     formData={formData}
+                    inCardMatched={inCardMatched}
                   />
                 }
               />
               <Route
                 path="/matchedcitieslist"
-                element={<MatchedCitiesList cities={cities} />}
+                element={
+                  <MatchedCitiesList
+                    cities={cities}
+                    changeValue={changeValue}
+                  />
+                }
               />
               <Route
                 path="/login"
@@ -100,6 +137,7 @@ const App = () => {
                 path="/userpreferences"
                 element={
                   <UserPreference
+                    swipe={swipe}
                     swiped={swiped}
                     outOfFrame={outOfFrame}
                     lastDirection={lastDirection}

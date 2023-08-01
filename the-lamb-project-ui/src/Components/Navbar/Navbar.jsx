@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AboutPage from "../AboutPage/AboutPage";
 import "./Navbar.css";
 
-const Navbar = ({ likedCityCount, cities }) => {
+const Navbar = ({ likedCityCount, cities, inCardMatched }) => {
   return (
     <div className="navbar">
       <div className="flex justify-between items-center h-24 max-w-[1240px]mx-auto px-4 text-[#015239]">
@@ -17,11 +17,15 @@ const Navbar = ({ likedCityCount, cities }) => {
         </h1>
 
         <ul className="flex">
-          <Link to="/matchedcitieslist">
-            <span className="House">🏠</span>
-          </Link>
+          {inCardMatched && (
+            <>
+              <Link to="/matchedcitieslist">
+                <span className="House">🏠</span>
+              </Link>
+              <span className="CityNumber">{cities}</span>
+            </>
+          )}
 
-          <span className="CityNumber">{cities.length}</span>
           <li className="p-4  text-lg ">
             <Link to="/about">About</Link>
           </li>
