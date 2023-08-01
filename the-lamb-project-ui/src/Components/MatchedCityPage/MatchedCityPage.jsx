@@ -39,6 +39,7 @@ const MatchedCityPage = ({
     <div>
       {cityCard !== "" ? (
         <MatchedCityCard
+          formData={formData}
           swipe={swipe}
           swiped={swiped}
           outOfFrame={outOfFrame}
@@ -46,7 +47,12 @@ const MatchedCityPage = ({
           cityCard={cityCard}
         />
       ) : (
-        "CityCard is empty"
+        // "CityCard is empty"
+        // <div className="border">
+        //   <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"></svg>
+        <p> Loading...</p>
+
+        // </div>
       )}
     </div>
   );

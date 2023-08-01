@@ -22,7 +22,7 @@ const Navbar = ({ likedCityCount, cities, inCardMatched }) => {
               <Link to="/matchedcitieslist">
                 <span className="House">🏠</span>
               </Link>
-              <span className="CityNumber">{cities.length}</span>
+              <span className="CityNumber">{cities}</span>
             </>
           )}
 
