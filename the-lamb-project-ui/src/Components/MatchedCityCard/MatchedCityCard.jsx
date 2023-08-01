@@ -19,22 +19,17 @@ const MatchedCityCard = ({
   // const reverseCard = cityCard.reverse
   const characters = cityCard;
   const [houseVisible, setHouseVisible] = useState(true);
-  const [culinary, setCulinary] = useState(false);
-  const [fashion, setFashion] = useState(false);
-  const [physician, setPhysician] = useState(false);
-  const [socialWork, setSocialWork] = useState(false);
-  const [software, setSoftware] = useState(false);
-  const [teachers, setTeachers] = useState(false);
 
-  const preferences = (object) => {
-    for (let i = 0; i <= formData.lenght; i++) {
-      let preferedIndustry = "";
-      let industry = formData.industry;
-      if (object.industry === true) {
-        preferedIndustry = industry;
-      }
-    }
-  };
+  // const preferences = (object) => {
+  //   for (let i = 0; i <= formData.lenght; i++) {
+  //     let preferedIndustry = "";
+  //     let industry = formData.industry;
+  //     if (object.industry === true) {
+  //       preferedIndustry = industry;
+
+  //     }
+  //   }
+  // };
 
   // const [updatedCities, setUpdatedCities] = useState(INITIAL_FORM_DATA);
 
@@ -84,9 +79,13 @@ const MatchedCityCard = ({
                   <h3 className="NameTag">
                     <center>{character.city + ", " + character.state}</center>
                   </h3>
+
                   <h4 flex items-start>
-                    <center>{character.hobby}</center>
-                    <center>{<preferences object={character} />}</center>
+                    <center>{character.hobby && formData.hobby}</center>
+                    <center>
+                      {character[formData.industry.toLowerCase()] &&
+                        formData.industry}
+                    </center>
                   </h4>
                 </div>
               </TinderCard>
