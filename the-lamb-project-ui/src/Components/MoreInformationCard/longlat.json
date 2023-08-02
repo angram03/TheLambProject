@@ -1,0 +1,304 @@
+{
+  "cities": [
+    {
+      "name": "New York",
+      "latitude": 40.7128,
+      "longitude": -74.0060,
+      "address": "123 Broadway, New York, NY"
+    },
+    {
+      "name": "San Francisco",
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "address": "456 Market St, San Francisco, CA"
+    },
+    {
+      "name": "Boston",
+      "latitude": 42.3601,
+      "longitude": -71.0589,
+      "address": "789 Park Ave, Boston, MA"
+    },
+    {
+      "name": "Seattle",
+      "latitude": 47.6062,
+      "longitude": -122.3321,
+      "address": "101 Main St, Seattle, WA"
+    },
+    {
+      "name": "Chicago",
+      "latitude": 41.8781,
+      "longitude": -87.6298,
+      "address": "555 State St, Chicago, IL"
+    },
+    {
+      "name": "Austin",
+      "latitude": 30.2672,
+      "longitude": -97.7431,
+      "address": "777 Congress Ave, Austin, TX"
+    },
+    {
+      "name": "Raleigh",
+      "latitude": 35.7796,
+      "longitude": -78.6382,
+      "address": "888 Capital Blvd, Raleigh, NC"
+    },
+    {
+      "name": "Denver",
+      "latitude": 39.7392,
+      "longitude": -104.9903,
+      "address": "999 Colorado Ave, Denver, CO"
+    },
+    {
+      "name": "Washington D.C.",
+      "latitude": 38.9072,
+      "longitude": -77.0369,
+      "address": "101 Constitution Ave NW, Washington, D.C."
+    },
+    {
+      "name": "San Diego",
+      "latitude": 32.7157,
+      "longitude": -117.1611,
+      "address": "555 Harbor Dr, San Diego, CA"
+    },
+    {
+      "name": "Los Angeles",
+      "latitude": 34.0522,
+      "longitude": -118.2437,
+      "address": "789 Hollywood Blvd, Los Angeles, CA"
+    },
+    {
+      "name": "Dallas",
+      "latitude": 32.7767,
+      "longitude": -96.7970,
+      "address": "222 Commerce St, Dallas, TX"
+    },
+    {
+      "name": "Atlanta",
+      "latitude": 33.7490,
+      "longitude": -84.3880,
+      "address": "333 Peachtree St NE, Atlanta, GA"
+    },
+    {
+      "name": "Houston",
+      "latitude": 29.7604,
+      "longitude": -95.3698,
+      "address": "444 Texas Ave, Houston, TX"
+    },
+    {
+      "name": "Phoenix",
+      "latitude": 33.4484,
+      "longitude": -112.0740,
+      "address": "123 Phoenix Ave, Phoenix, AZ"
+    },
+    {
+      "name": "Portland",
+      "latitude": 45.5051,
+      "longitude": -122.6750,
+      "address": "222 Burnside St, Portland, OR"
+    },
+    {
+      "name": "Minneapolis",
+      "latitude": 44.9778,
+      "longitude": -93.2650,
+      "address": "777 Nicollet Mall, Minneapolis, MN"
+    },
+    {
+      "name": "Charlotte",
+      "latitude": 35.2271,
+      "longitude": -80.8431,
+      "address": "555 Tryon St, Charlotte, NC"
+    },
+    {
+      "name": "Nashville",
+      "latitude": 36.1627,
+      "longitude": -86.7816,
+      "address": "444 Broadway, Nashville, TN"
+    },
+    {
+      "name": "Philadelphia",
+      "latitude": 39.9526,
+      "longitude": -75.1652,
+      "address": "101 Market St, Philadelphia, PA"
+    },
+    {
+      "name": "Salt Lake City",
+      "latitude": 40.7608,
+      "longitude": -111.8910,
+      "address": "888 State St, Salt Lake City, UT"
+    },
+    {
+      "name": "Pittsburgh",
+      "latitude": 40.4406,
+      "longitude": -79.9959,
+      "address": "777 Grant St, Pittsburgh, PA"
+    },
+    {
+      "name": "Indianapolis",
+      "latitude": 39.7684,
+      "longitude": -86.1581,
+      "address": "333 Washington St, Indianapolis, IN"
+    },
+    {
+      "name": "Orlando",
+      "latitude": 28.5383,
+      "longitude": -81.3792,
+      "address": "123 Orange Ave, Orlando, FL"
+    },
+    {
+      "name": "Columbus",
+      "latitude": 39.9612,
+      "longitude": -82.9988,
+      "address": "444 High St, Columbus, OH"
+    },
+    {
+      "name": "Rochester",
+      "latitude": 43.1566,
+      "longitude": -77.6088,
+      "address": "101 Main St, Rochester, NY"
+    },
+    {
+      "name": "Providence",
+      "latitude": 41.8240,
+      "longitude": -71.4128,
+      "address": "777 Waterman St, Providence, RI"
+    },
+    {
+      "name": "Boise",
+      "latitude": 43.6150,
+      "longitude": -116.2023,
+      "address": "555 Grove St, Boise, ID"
+    },
+    {
+      "name": "Madison",
+      "latitude": 43.0731,
+      "longitude": -89.4012,
+      "address": "888 State St, Madison, WI"
+    },
+    {
+      "name": "Albuquerque",
+      "latitude": 35.0845,
+      "longitude": -106.6511,
+      "address": "123 Central Ave, Albuquerque, NM"
+    },
+    {
+      "name": "Charleston",
+      "latitude": 32.7765,
+      "longitude": -79.9311,
+      "address": "444 King St, Charleston, SC"
+    },
+    {
+      "name": "Des Moines",
+      "latitude": 41.5868,
+      "longitude": -93.6250,
+      "address": "555 Walnut St, Des Moines, IA"
+    },
+    {
+      "name": "Birmingham",
+      "latitude": 33.5186,
+      "longitude": -86.8104,
+      "address": "101 1st Ave, Birmingham, AL"
+    },
+    {
+      "name": "Honolulu",
+      "latitude": 21.3069,
+      "longitude": -157.8583,
+      "address": "123 Waikiki Beach, Honolulu, HI"
+    },
+    {
+      "name": "Savannah",
+      "latitude": 32.0809,
+      "longitude": -81.0912,
+      "address": "444 River St, Savannah, GA"
+    },
+    {
+      "name": "Tucson",
+      "latitude": 32.2226,
+      "longitude": -110.9747,
+      "address": "777 Congress St, Tucson, AZ"
+    },
+    {
+      "name": "Omaha",
+      "latitude": 41.2565,
+      "longitude": -95.9345,
+      "address": "123 Dodge St, Omaha, NE"
+    },
+    {
+      "name": "Little Rock",
+      "latitude": 34.7465,
+      "longitude": -92.2896,
+      "address": "555 Main St, Little Rock, AR"
+    },
+    {
+      "name": "Jacksonville",
+      "latitude": 30.3322,
+      "longitude": -81.6557,
+      "address": "101 Bay St, Jacksonville, FL"
+    },
+    {
+      "name": "Baton Rouge",
+      "latitude": 30.4515,
+      "longitude": -91.1871,
+      "address": "444 River Rd, Baton Rouge, LA"
+    },
+    {
+      "name": "Wichita",
+      "latitude": 37.6872,
+      "longitude": -97.3301,
+      "address": "777 Douglas Ave, Wichita, KS"
+    },
+    {
+      "name": "Spokane",
+      "latitude": 47.6588,
+      "longitude": -117.4260,
+      "address": "123 Main St, Spokane, WA"
+    },
+    {
+      "name": "Tallahassee",
+      "latitude": 30.4383,
+      "longitude": -84.2807,
+      "address": "555 Capital Cir SE, Tallahassee, FL"
+    },
+    {
+      "name": "Lubbock",
+      "latitude": 33.5779,
+      "longitude": -101.8552,
+      "address": "888 University Ave, Lubbock, TX"
+    },
+    {
+      "name": "Fargo",
+      "latitude": 46.8772,
+      "longitude": -96.7898,
+      "address": "101 Main Ave, Fargo, ND"
+    },
+    {
+      "name": "Baltimore",
+      "latitude": 39.2904,
+      "longitude": -76.6122,
+      "address": "123 Pratt St, Baltimore, MD"
+    },
+    {
+      "name": "Cleveland",
+      "latitude": 41.4993,
+      "longitude": -81.6944,
+      "address": "555 Euclid Ave, Cleveland, OH"
+    },
+    {
+      "name": "Detroit",
+      "latitude": 42.3314,
+      "longitude": -83.0458,
+      "address": "777 Woodward Ave, Detroit, MI"
+    },
+    {
+      "name": "St. Louis",
+      "latitude": 38.6273,
+      "longitude": -90.1978,
+      "address": "444 Market St, St. Louis, MO"
+    },
+    {
+      "name": "Milwaukee",
+      "latitude": 43.0389,
+      "longitude": -87.9065,
+      "address": "101 Wisconsin Ave, Milwaukee, WI"
+    }
+  ]
+}

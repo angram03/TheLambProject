@@ -1,6 +1,9 @@
 import React from "react";
+import axios from "axios"
 
 const MoreInformationCard = () => {
+
+
   return (
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 
@@ -25,7 +28,7 @@ const MoreInformationCard = () => {
           <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">Yes or No</dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt className="text-sm font-semibold leading-6 text-[#044389]"> Bike Score:</dt>
+          <dt className="text-sm font-semibold leading-6 text-[#044389]"> Bike Score: </dt>
           <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">Yes or No</dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">

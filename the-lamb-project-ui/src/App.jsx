@@ -18,6 +18,9 @@ import MatchedCityPage from "./Components/MatchedCityPage/MatchedCityPage";
 import MatchedCitiesList from "./Components/MatchedCityList/MatchedCityList";
 import CityScores from "./Components/CityScores/CityScores";
 import Weather from "./Components/Weather/Weather";
+// import CityGrid from "./Components/MoreInformationCard/temp2";
+import CityCard from "./Components/MoreInformationCard/temp";
+import MoreInformationCard from "./Components/MoreInformationCard/MoreInformationCard";
 
 const App = () => {
   const [appState, setAppState] = useState({});
@@ -161,8 +164,11 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/cityscores" element={<CityScores />} />
-              <Route path="/weather" element={<Weather />} />
+              <Route path="/cityscores" element={<CityScores/>}/>
+              <Route path="/weather" element={<Weather/>}/>
+              <Route path="/temp" element={<CityCard city="New York City" />} />
+              <Route path="/moreinformation" element={<MoreInformationCard/>}/>
+
             </Routes>
           </div>
         </div>
