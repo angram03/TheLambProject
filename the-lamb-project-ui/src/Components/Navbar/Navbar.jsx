@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import AboutPage from "../AboutPage/AboutPage";
 import "./Navbar.css";
 
-
 const Navbar = ({
+  citiesSize,
   likedCityCount,
   cities,
   inCardMatched,
   isLoggedIn,
   setIsLoggedIn,
 }) => {
-
   return (
     <div className="navbar">
       <div className="flex justify-between items-center h-24 max-w-[1240px]mx-auto px-4 text-[#015239]">
