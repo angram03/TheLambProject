@@ -10,6 +10,7 @@ const MatchedCityCard = ({
   lastDirection,
   cityCard,
   swipe,
+  // childRefs,
 }) => {
   console.log("FORM DATA", formData);
   console.log("Citycaard");
@@ -65,10 +66,11 @@ const MatchedCityCard = ({
           .map((character, index) => (
             <>
               <TinderCard
+                // ref={childRefs[index]}
                 className="swipe"
                 key={index}
                 onSwipe={(dir) =>
-                  swiped(dir, character.city, index, cityCard, houseVisible)
+                  swiped(dir, character, index, cityCard, houseVisible)
                 }
                 onCardLeftScreen={() => outOfFrame(character.city)}
               >
