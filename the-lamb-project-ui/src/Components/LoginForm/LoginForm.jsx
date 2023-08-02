@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 import "./LoginForm.css"
-export default function LoginForm({ setAppState }) {
+export default function LoginForm({ setAppState, setIsLoggedIn }) {
   const navigate = useNavigate()
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
@@ -32,17 +32,21 @@ export default function LoginForm({ setAppState }) {
 
     try {
       const res = await axios.post(`http://localhost:3001/auth/login`, form)
+      const {token} = res
+      console.log("token", token)
       if (res?.data) {
+        
         setAppState(res.data)
         setIsLoading(false)
         navigate("/")
-        console.log("hey it works stoopid")
+        console.log("hey it works")
       } else {
         setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
         setIsLoading(false)
         console.log("hey it doesn't work stoopid")
 
       }
+      setIsLoggedIn(true)
     } catch (err) {
       console.log(err)
       const message = err?.response?.data?.error?.message

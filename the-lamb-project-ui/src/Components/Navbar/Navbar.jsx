@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import AboutPage from "../AboutPage/AboutPage";
 import "./Navbar.css";
 
-const Navbar = ({ likedCityCount, citiesSize, inCardMatched }) => {
+
+const Navbar = ({
+  likedCityCount,
+  cities,
+  inCardMatched,
+  isLoggedIn,
+  setIsLoggedIn,
+}) => {
+
   return (
     <div className="navbar">
       <div className="flex justify-between items-center h-24 max-w-[1240px]mx-auto px-4 text-[#015239]">
@@ -30,13 +38,21 @@ const Navbar = ({ likedCityCount, citiesSize, inCardMatched }) => {
             <Link to="/about">About</Link>
           </li>
 
-          <li className="p-4 text-lg ">
-            <Link to="/login">Login</Link>
-          </li>
+          {isLoggedIn ? (
+            <li className="p-4 text-lg ">
+              <Link onClick={(e) => setIsLoggedIn(false)}>logout</Link>
+            </li>
+          ) : (
+            <>
+              <li className="p-4 text-lg ">
+                <Link to="/login">Login</Link>
+              </li>
 
-          <li className="p-4 text-lg ">
-            <Link to="/register">Register</Link>
-          </li>
+              <li className="p-4 text-lg ">
+                <Link to="/register">Register</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
