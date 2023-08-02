@@ -8,7 +8,7 @@ const userPreferenceRoutes = require('./routes/user_preference');
 const security = require('./middleware/security.js');
 const axios = require('axios');
 const weatherRoute = require('./routes/weatherRoute');
-
+const walkscoreRoute = require('./routes/walkscoreRoute');
 const app = express();
 
 app.use(cors());
@@ -20,6 +20,7 @@ app.use(security.extractUserFromJwt);
 app.use('/auth', authRoutes);
 app.use('/user', userPreferenceRoutes);
 app.use('/api', weatherRoute);
+// app.use('/getwalkscore', walkscoreRoute);
 
 // Add the new route handler here
 app.get('/api/city/:cityName/scores', async (req, res, next) => {
