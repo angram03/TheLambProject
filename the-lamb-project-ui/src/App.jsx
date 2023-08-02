@@ -102,6 +102,11 @@ const App = () => {
     console.log("CURRENT INDEX", currentIndex);
     console.log(dir);
   };
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+   window.location.href = "/";
+  }
 
   return (
     <div>
@@ -113,6 +118,7 @@ const App = () => {
             inCardMatched={inCardMatched}
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
+            handleLogOut={handleLogOut}
           />
           <div>
             <Routes>
