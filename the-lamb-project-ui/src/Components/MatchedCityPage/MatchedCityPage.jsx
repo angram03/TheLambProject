@@ -12,6 +12,7 @@ const MatchedCityPage = ({
   lastDirection,
   formData,
   swipe,
+  // childRefs,
 }) => {
   const [cityCard, setCityCard] = useState("");
   console.log("The formdata is.. ");
@@ -45,6 +46,7 @@ const MatchedCityPage = ({
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
           cityCard={cityCard}
+          // childRefs={childRefs}
         />
       ) : (
         // "CityCard is empty"

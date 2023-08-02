@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useRef } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import SearchBar from "./Components/SearchBar/SearchBar";
@@ -32,6 +32,7 @@ const App = () => {
   const [number, setNumber] = useState(1);
   const [lastDirection, setLastDirection] = useState();
   const [cities, setCities] = useState([]);
+  const [citiesSize, setCitiesSize] = useState(0);
   const [allCities, setAllCities] = useState([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,15 +40,6 @@ const App = () => {
   const [inCardMatched, setInCardMatched] = useState(false);
   // const currentIndexRef = useRef(currentIndex)
   // const childRefs = 0;
-
-  const swipe = async (dir) => {
-    // await
-    // console.log(childRefs[0]);
-
-    console.log(currentIndex);
-    console.log("CURRENT INDEX", currentIndex);
-    console.log(dir);
-  };
 
   const swiped = (
     direction,
@@ -69,6 +61,7 @@ const App = () => {
     if (direction == "right") {
       setNumber(number + 1);
       setCities([...cities, nameToDelete]);
+      setCitiesSize(cities.length + 1);
     }
     if (direction == "down" || direction == "up") {
       restoreCard();
@@ -93,8 +86,21 @@ const App = () => {
   });
   const changeValue = (city) => {
     console.log("BIG CITY", city);
+    setCitiesSize(citiesSize - 1);
+
     // const newList = cities.filter((item) => item !== city);
     // setCities(newList);
+  };
+  // const currentIndexRef = useRef(0);
+  // const childRefs = useMemo(() => Array(50).map((i) => React.createRef()));
+  const swipe = async (dir, cityCard) => {
+    // await
+    // console.log(childRefs[0]);
+    // await childRefs[currentIndexRef].current.swipe(dir);
+    console.log(cityCard);
+    console.log(currentIndex);
+    console.log("CURRENT INDEX", currentIndex);
+    console.log(dir);
   };
 
   return (
@@ -103,7 +109,7 @@ const App = () => {
         <div>
           <Navbar
             likedCityCount={likedCityCount}
-            cities={cities.length}
+            citiesSize={citiesSize}
             inCardMatched={inCardMatched}
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
@@ -117,6 +123,7 @@ const App = () => {
                 path="/matchedcity"
                 element={
                   <MatchedCityPage
+                    // childRefs={childRefs}
                     swipe={swipe}
                     swiped={swiped}
                     outOfFrame={outOfFrame}
@@ -157,11 +164,16 @@ const App = () => {
                   />
                 }
               />
+<<<<<<< HEAD
               <Route path="/cityscores" element={<CityScores/>}/>
               <Route path="/weather" element={<Weather/>}/>
               <Route path="/temp" element={<CityCard city="New York City" />} />
               <Route path="/moreinformation" element={<MoreInformationCard/>}/>
 
+=======
+              <Route path="/cityscores" element={<CityScores />} />
+              <Route path="/weather" element={<Weather />} />
+>>>>>>> 68d023048cdcceb0d0f5a6f34ffb2957023b8b05
             </Routes>
           </div>
         </div>
