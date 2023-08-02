@@ -164,16 +164,11 @@ const App = () => {
                   />
                 }
               />
-<<<<<<< HEAD
               <Route path="/cityscores" element={<CityScores/>}/>
               <Route path="/weather" element={<Weather/>}/>
               <Route path="/temp" element={<CityCard city="New York City" />} />
               <Route path="/moreinformation" element={<MoreInformationCard/>}/>
 
-=======
-              <Route path="/cityscores" element={<CityScores />} />
-              <Route path="/weather" element={<Weather />} />
->>>>>>> 68d023048cdcceb0d0f5a6f34ffb2957023b8b05
             </Routes>
           </div>
         </div>
