@@ -23,7 +23,9 @@ const MatchedCitiesList = ({ cities, changeValue }) => {
       {updatedCities.map((city) => {
         return (
           <div className="my-6 city flex flex-row justify-between border border-blue-500">
-            <p className="ml-7 mt-2">{city.city}</p>
+            <Link to={`../moreinformation/${city.city}`}>
+              <p className="ml-7 mt-2">{city.city}</p>
+            </Link>
             <div className="flex flex-row">
               <div>
                 <Link

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 import "./MatchedCityCard.css";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 const MatchedCityCard = ({
   swiped,
@@ -20,6 +21,7 @@ const MatchedCityCard = ({
   // const reverseCard = cityCard.reverse
   const characters = cityCard;
   const [houseVisible, setHouseVisible] = useState(true);
+  // const { city } = useParams();
 
   // const preferences = (object) => {
   //   for (let i = 0; i <= formData.lenght; i++) {
@@ -74,22 +76,24 @@ const MatchedCityCard = ({
                 }
                 onCardLeftScreen={() => outOfFrame(character.city)}
               >
-                <div
-                  style={{ backgroundImage: "url(" + character.images + ")" }}
-                  className="card"
-                >
-                  <h3 className="NameTag">
-                    <center>{character.city + ", " + character.state}</center>
-                  </h3>
+                <Link to={`/moreinformation/${character.city}`}>
+                  <div
+                    style={{ backgroundImage: "url(" + character.images + ")" }}
+                    className="card"
+                  >
+                    <h3 className="NameTag">
+                      <center>{character.city + ", " + character.state}</center>
+                    </h3>
 
-                  <h4 flex items-start>
-                    <center>{character.hobby && formData.hobby}</center>
-                    <center>
-                      {character[formData.industry.toLowerCase()] &&
-                        formData.industry}
-                    </center>
-                  </h4>
-                </div>
+                    <h4 flex items-start>
+                      <center>{character.hobby && formData.hobby}</center>
+                      <center>
+                        {character[formData.industry.toLowerCase()] &&
+                          formData.industry}
+                      </center>
+                    </h4>
+                  </div>
+                </Link>
               </TinderCard>
             </>
           ))}

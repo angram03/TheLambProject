@@ -24,9 +24,6 @@ const Weather = () => {
     }
   };
 
-  
-
-
   return (
     <div className="px-8 bg-[lightblue]">
       <h1 className="font-bold">Weather</h1>
@@ -45,9 +42,12 @@ const Weather = () => {
       {error && <p>{error}</p>}
       {weatherData && (
         <div>
-          <h1 className="px-2 py-2 font-bold text-2xl"> Today's {city} Temperatures</h1>
+          <h1 className="px-2 py-2 font-bold text-2xl">
+            {" "}
+            Today's {city} Temperatures
+          </h1>
           <p className=" px-2 py-2 text-xl">
-            🥶 Lowest Temperature: {weatherData.todayMinTemp}°F{" "}
+            🥶 Lowest Temperature: {weatherData.toaydMinTemp}°F{" "}
           </p>
 
           <p className="px-2 py-2 text-xl">

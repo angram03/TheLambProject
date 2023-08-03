@@ -182,7 +182,7 @@ const App = () => {
               <Route path="/weather" element={<Weather />} />
               <Route path="/temp" element={<CityCard city="New York City" />} />
               <Route
-                path="/moreinformation"
+                path="/moreinformation/:city"
                 element={<MoreInformationCard />}
               />
             </Routes>
