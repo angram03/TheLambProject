@@ -10,16 +10,15 @@ const Navbar = ({
   inCardMatched,
   isLoggedIn,
   setIsLoggedIn,
-  handleLogOut
+  handleLogOut,
 }) => {
- const token =  localStorage.getItem("token")
- if(token !== null){
-  setIsLoggedIn(true)
- }else{
-  setIsLoggedIn(false)
- }
+  const token = localStorage.getItem("token");
+  if (token !== null) {
+    setIsLoggedIn(true);
+  } else {
+    setIsLoggedIn(false);
+  }
 
-  
   return (
     <div className="navbar">
       <div className="flex justify-between items-center h-24 max-w-[1240px]mx-auto px-4 text-[#015239]">
@@ -33,7 +32,7 @@ const Navbar = ({
         </h1>
 
         <ul className="flex">
-          {inCardMatched && (
+          {inCardMatched && isLoggedIn && (
             <>
               <Link to="/matchedcitieslist">
                 <span className="House">🏠</span>
@@ -48,10 +47,8 @@ const Navbar = ({
 
           {isLoggedIn ? (
             <li className="p-4 text-lg ">
-
               {/* //first get token, if the token is there, set is Logged in to true */}
-              <Link onClick={(e) => 
-                handleLogOut()}>logout</Link>
+              <Link onClick={(e) => handleLogOut()}>logout</Link>
             </li>
           ) : (
             <>

@@ -26,8 +26,6 @@ const App = () => {
   const [appState, setAppState] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  
-
   const [likedCityCount, setLikedCityCount] = useState(0);
   const [number, setNumber] = useState(1);
   const [lastDirection, setLastDirection] = useState();
@@ -105,8 +103,8 @@ const App = () => {
   const handleLogOut = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-   window.location.href = "/";
-  }
+    window.location.href = "/";
+  };
 
   return (
     <div>
@@ -150,11 +148,21 @@ const App = () => {
               />
               <Route
                 path="/login"
-                element={<LoginForm setAppState={setAppState} setIsLoggedIn={setIsLoggedIn}/>}
+                element={
+                  <LoginForm
+                    setAppState={setAppState}
+                    setIsLoggedIn={setIsLoggedIn}
+                  />
+                }
               />
               <Route
                 path="/register"
-                element={<RegisterCard setAppState={setAppState} setIsLoggedIn={setIsLoggedIn}/>}
+                element={
+                  <RegisterCard
+                    setAppState={setAppState}
+                    setIsLoggedIn={setIsLoggedIn}
+                  />
+                }
               />
               <Route
                 path="/userpreferences"
@@ -170,11 +178,13 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/cityscores" element={<CityScores/>}/>
-              <Route path="/weather" element={<Weather/>}/>
+              <Route path="/cityscores" element={<CityScores />} />
+              <Route path="/weather" element={<Weather />} />
               <Route path="/temp" element={<CityCard city="New York City" />} />
-              <Route path="/moreinformation" element={<MoreInformationCard/>}/>
-
+              <Route
+                path="/moreinformation"
+                element={<MoreInformationCard />}
+              />
             </Routes>
           </div>
         </div>
