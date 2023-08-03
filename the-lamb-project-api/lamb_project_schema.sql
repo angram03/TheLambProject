@@ -14,10 +14,7 @@ CREATE TABLE users_preference(
     Fashion BOOLEAN NOT NULL,
     Culinary BOOLEAN NOT NULL, 
     Social_Work BOOLEAN NOT NULL,
-    Hobby TEXT NOT NULL, 
-    Low INTEGER NOT NULL, 
-    High INTEGER NOT NULL,
-    Average INTEGER NOT NULL,
+    Hobby TEXT NOT NULL,
     Images TEXT NOT NULL
 );
 -- CREATE TABLE city_scores (

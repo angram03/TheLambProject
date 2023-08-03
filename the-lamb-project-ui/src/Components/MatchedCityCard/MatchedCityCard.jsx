@@ -76,34 +76,40 @@ const MatchedCityCard = ({
                 }
                 onCardLeftScreen={() => outOfFrame(character.city)}
               >
-                <Link to={`/moreinformation/${character.city}`}>
-                  <div
-                    style={{ backgroundImage: "url(" + character.images + ")" }}
-                    className="card"
-                  >
-                    <h3 className="NameTag">
+                <div
+                  style={{ backgroundImage: "url(" + character.images + ")" }}
+                  className="card"
+                >
+                  <Link to={`/moreinformation/${character.city}`}>
+                    <h3 className="NameTag ">
                       <center>{character.city + ", " + character.state}</center>
                     </h3>
+                  </Link>
 
-                    <h4 flex items-start>
-                      <center>{character.hobby && formData.hobby}</center>
-                      <center>
-                        {character[formData.industry.toLowerCase()] &&
-                          formData.industry}
-                      </center>
-                    </h4>
-                  </div>
-                </Link>
+                  <h4 flex items-start>
+                    <center>{character.hobby && formData.hobby}</center>
+                    <center>
+                      {character[formData.industry.toLowerCase()] &&
+                        formData.industry}
+                    </center>
+                  </h4>
+                </div>
               </TinderCard>
             </>
           ))}
       </div>
-      <div className="tinder--buttons content-center	">
+      {/* <div className="tinder--buttons content-center	">
         <button id="nope" className="nope"></button>
         <button id="love">
           <i className="fa fa-heart heart"></i>
         </button>
-      </div>
+      </div> */}
+      <br></br>
+      <center>
+        <button className="border-solid border-2 border-sky-500">
+          More Info
+        </button>
+      </center>
       <button onClick={() => swipe("left", cityCard)}>Left</button>
       <button onClick={() => swipe("right", cityCard)}>Right</button>
     </div>

@@ -59,7 +59,6 @@ const MoreInformationCard = () => {
           <dl className="divide-y divide-gray-100">
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-semibold leading-6 text-[#044389]">
-                {" "}
                 Walk Score:
               </dt>
               <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
