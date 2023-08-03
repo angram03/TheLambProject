@@ -16,7 +16,8 @@ const WeatherInfo = ({formData, setFormData}) => {
 
   return (
     <div className="checkList-weather">
-      <h1>What kind of weather do you enjoy the most?</h1>
+      <h1 className="font-heavy">What kind of weather do you enjoy the most?</h1>
+      <br />
       <div className="list-container2">
         {seasonalWeather.map((item, index) => (
           <div key={index}>

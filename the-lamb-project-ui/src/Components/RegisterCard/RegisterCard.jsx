@@ -59,12 +59,18 @@ export default function RegisterCard({ setAppState, setIsLoggedIn }) {
         userName: form.userName,
         email: form.email,
         password: form.password,
-      })
+      }
+      
+      )
+      const token = res.data.token;
+      const user = res.data.user;
+      localStorage.setItem("token", token)
 
+      console.log(localStorage.getItem("token"))
       if (res?.data?.user) {
         setAppState(res.data)
         setIsLoading(false)
-        navigate("/")
+        navigate("/userpreferences")
       } else {
         setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
         setIsLoading(false)

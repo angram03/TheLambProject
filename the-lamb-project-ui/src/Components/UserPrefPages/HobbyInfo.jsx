@@ -48,10 +48,12 @@ const HobbyInfo = ({formData, setFormData}) => {
     <div>
      
       <div className="checkList">
-        <h1>What is your favorite hobby?</h1>
+        <h1 className="font-heavy">What is your favorite hobby?</h1>
+      
         <div className="title">
-          <h1>Hobbies</h1>
+          <h3 className="font-heavy">select only one.</h3>
         </div>
+        <br />
         <div className="list-container">
           {hobbies.map((item, index) => (
             <div key={index}>

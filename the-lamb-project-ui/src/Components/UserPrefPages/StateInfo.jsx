@@ -66,9 +66,10 @@ const StateInfo = ({formData, setFormData}) => {
   return (
     <div>
       <div className="state-dropdown">
-        <h1>Pick your state of choice.</h1>
-        <h2>Remember there are 50 states! You have a lot of options.</h2>
-        <select value={formData.state} onChange={handleChange}>
+        <h1 className="font-heavy">Pick your state of choice. 🇺🇸</h1>
+        <h2 className="font-heavy">Remember there are 50 states! You have a lot of options.</h2>
+        <br />
+        <select className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6" value={formData.state} onChange={handleChange}>
           <option value="">Select a state</option>
           {states.map((state) => (
             <option key={state.code} value={state.name} onChange={handleChange}>

@@ -299,6 +299,12 @@
         "latitude": 43.0389,
         "longitude": -87.9065,
         "address": "101 Wisconsin Ave, Milwaukee, WI"
+      },
+      {
+        "name": "Kennesaw",
+        "latitude": 34.0234,
+        "longitude": -84.6155,
+        "address": "4180 LakeMist Dr, Kennesaw, GA"
       }
     ]
   }

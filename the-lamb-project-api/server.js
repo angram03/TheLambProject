@@ -20,7 +20,7 @@ app.use(security.extractUserFromJwt);
 app.use('/auth', authRoutes);
 app.use('/user', userPreferenceRoutes);
 app.use('/api', weatherRoute);
-// app.use('/getwalkscore', walkscoreRoute);
+app.use('/getwalkscore', walkscoreRoute);
 
 // Add the new route handler here
 app.get('/api/city/:cityName/scores', async (req, res, next) => {

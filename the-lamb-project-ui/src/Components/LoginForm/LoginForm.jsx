@@ -31,7 +31,7 @@ export default function LoginForm({ setAppState, setIsLoggedIn }) {
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await axios.post(`http://localhost:3001/auth/login`, form, );
+      const res = await axios.post(`http://localhost:3001/auth/login`, form );
       const token = res.data.token;
       const user = res.data.user;
       localStorage.setItem("token", token)
@@ -44,7 +44,7 @@ export default function LoginForm({ setAppState, setIsLoggedIn }) {
       if (res?.data) {
         setAppState(res.data);
         setIsLoading(false);
-        navigate("/");
+        navigate("/userpreferences");
         console.log("hey it works");
       } else {
         setErrors((e) => ({
@@ -52,7 +52,7 @@ export default function LoginForm({ setAppState, setIsLoggedIn }) {
           form: "Invalid username/password combination",
         }));
         setIsLoading(false);
-        console.log("hey it doesn't work stoopid");
+       
       }
       setIsLoggedIn(true);
     } catch (err) {
