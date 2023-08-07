@@ -87,9 +87,7 @@ const Chatbot = () => {
             </button>
           </div>
           <div className="flex justify-center items-center mb-2">
-            <div
-              className="rounded-full bg-blue-500 w-12 h-12 flex justify-center items-center"
-            >
+            <div className="rounded-full bg-blue-500 w-12 h-12 flex justify-center items-center">
               <img
                 className="object-contain h-8"
                 src="images/sheep.png"
@@ -98,7 +96,11 @@ const Chatbot = () => {
             </div>
             <p className="text-gray-800 ml-2 font-semibold">BaaBot</p>
           </div>
-          <hr className="my-2 border-gray-400" style={{ borderColor: "#015239" }} /> {/* Horizontal line with dark green color */}
+          <hr
+            className="my-2 border-gray-400"
+            style={{ borderColor: "#015239" }}
+          />{" "}
+          {/* Horizontal line with dark green color */}
           <div id="chatbot">
             {chatMessages.map((chat, index) => (
               <div
@@ -150,4 +152,3 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
-

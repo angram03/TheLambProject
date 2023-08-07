@@ -17,11 +17,15 @@ CREATE TABLE users_preference(
     Hobby TEXT NOT NULL,
     Images TEXT NOT NULL
 );
--- CREATE TABLE city_scores (
---   id SERIAL PRIMARY KEY,
---   city_name TEXT NOT NULL,
---   scores JSONB NOT NULL,
---   summary TEXT NOT NULL,
---   -- Add other columns for each info stuff 
---   created_at TIMESTAMP DEFAULT NOW()
--- );
+CREATE TABLE user_preference(
+
+    user_email TEXT NOT NULL, 
+    State TEXT NOT NULL, 
+    Industry TEXT NOT NULL, 
+    Hobby TEXT NOT NULL, 
+    Weather TEXT NOT NULL,
+    states text ARRAY, 
+    FOREIGN KEY (user_email) REFERENCES users(email)
+    
+
+);
