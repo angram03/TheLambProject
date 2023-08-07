@@ -87,7 +87,7 @@ const MatchedCityCard = ({
                     </h3>
                   </Link>
 
-                  {/* <h4 flex items-start> */}
+                  {/* <h4 flex items-stpart> */}
                   {/* <center>{character.hobby && formData.hobby}</center>
                     <center>
                       {character[formData.industry.toLowerCase()] &&
