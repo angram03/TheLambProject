@@ -22,6 +22,7 @@ import Weather from "./Components/Weather/Weather";
 import CityCard from "./Components/MoreInformationCard/temp";
 import MoreInformationCard from "./Components/MoreInformationCard/MoreInformationCard";
 
+
 const App = () => {
   const [appState, setAppState] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,6 +39,10 @@ const App = () => {
   const [inCardMatched, setInCardMatched] = useState(false);
   // const currentIndexRef = useRef(currentIndex)
   // const childRefs = 0;
+  const [darkMode, setDarkMode] = useState(true)
+  function toggleDarkMode() {
+    setDarkMode(prevDarkMode => !prevDarkMode)
+}
 
   const swiped = (
     direction,

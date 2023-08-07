@@ -45,7 +45,7 @@ const MoreInformationCard = () => {
   }, [info]);
 
   return (
-    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-3xl">
+    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-5xl">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="px-4 sm:px-0">
           <h1 className="text-xl font-semibold leading-7 text-[#044389]">
