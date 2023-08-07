@@ -36,6 +36,7 @@ const App = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [index, setIndex] = useState(0);
   const [inCardMatched, setInCardMatched] = useState(false);
+  const [arrayLength, setArrayLength] = useState(0);
   // const currentIndexRef = useRef(currentIndex)
   // const childRefs = 0;
 
@@ -46,7 +47,6 @@ const App = () => {
     pers_preference,
     houseVisible
   ) => {
-    console.log("APP.JSX", pers_preference.pers_preference.length);
     setIndex(index + 1);
     setCurrentIndex(pers_preference.pers_preference.length);
     console.log("HOUSE VISIBLE", houseVisible);
@@ -55,6 +55,7 @@ const App = () => {
     console.log("allCitites", allCities);
     console.log("removing:" + nameToDelete);
     console.log(index);
+    setArrayLength(currentIndex - allCities.length);
 
     if (direction == "right") {
       setNumber(number + 1);
@@ -91,20 +92,32 @@ const App = () => {
   };
   // const currentIndexRef = useRef(0);
   // const childRefs = useMemo(() => Array(50).map((i) => React.createRef()));
-  const swipe = async (dir, cityCard) => {
-    // await
-    // console.log(childRefs[0]);
-    // await childRefs[currentIndexRef].current.swipe(dir);
-    console.log(cityCard);
-    console.log(currentIndex);
-    console.log("CURRENT INDEX", currentIndex);
-    console.log(dir);
-  };
+
   const handleLogOut = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     window.location.href = "/";
   };
+  const swipe = async (dir, cityCard) => {
+    // await
+    // console.log(childRefs[0]);
+    // await childRefs[currentIndexRef].current.swipe(dir);
+    console.log("citycard", cityCard.pers_preference.length);
+    console.log(arrayLength);
+    setArrayLength(cityCard.pers_preference.length);
+    console.log("arrayLength", arrayLength);
+    console.log("CURRENT INDEX", currentIndex);
+
+    await childRefs[21].current.swipe(dir);
+  };
+  const childRefs = useMemo(
+    () =>
+      Array(arrayLength)
+        .fill(0)
+        .map((i) => React.createRef()),
+    []
+  );
+  console.log("childeRef", childRefs);
 
   return (
     <div>
@@ -168,6 +181,7 @@ const App = () => {
                 path="/userpreferences"
                 element={
                   <UserPreference
+                    childRefs={childRefs}
                     swipe={swipe}
                     swiped={swiped}
                     outOfFrame={outOfFrame}

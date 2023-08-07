@@ -156,7 +156,7 @@ class User_Preference {
 
   //get user preference.
   static async getReturningUserPreferences(email) {
-    console.log(email);
+    // console.log(email);
     try {
       const query = `
       SELECT * FROM user_preference

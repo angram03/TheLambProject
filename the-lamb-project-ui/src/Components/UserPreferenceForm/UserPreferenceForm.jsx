@@ -15,38 +15,36 @@ const UserPreferenceForm = ({
   formData,
   setFormData,
   swipe,
+  childRefs,
 }) => {
   const [page, setPage] = useState(0);
   const [formComplete, setFormComplete] = useState(false);
   const [saveData, setSaveData] = useState([]);
-  const [returningUser, setReturningUser] = useState(true);
+  const [returningUser, setReturningUser] = useState(false);
   const [userSavedPreference, setUserSavedPreference] = useState([]);
   const [token, getToken] = useState(localStorage.getItem("token"));
+
   // get back saved data of user
-  const returningUserInformation = () => {
+  const returningUserInformation = async () => {
     try {
-      console.log("token");
       const headers = {
         Authorization: "Bearer " + token,
       };
-      console.log("WORKDS");
-      axios
-
-        .get("http://localhost:3001/user/returningUserInformation", { headers })
-        .then((response) => {
-          console.log("My Data2", response.data);
-          setUserSavedPreference(response.data);
-          console.log(userSavedPreference);
-        });
+      let response = await axios.get(
+        "http://localhost:3001/user/returningUserInformation",
+        { headers }
+      );
+      console.log(response);
+      if (response.data === "false") {
+        setReturningUser(false);
+      } else {
+        setReturningUser(true);
+        setUserSavedPreference(response.data);
+      }
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    returningUserInformation();
-  });
-
-  console.log("formData", formData);
 
   const FormTitles = ["State", "Industry", "Hobbies", "Weather"];
   const PageDisplay = () => {
@@ -61,9 +59,13 @@ const UserPreferenceForm = ({
     }
   };
 
+  useEffect(() => {
+    returningUserInformation();
+  }, []);
+
   return (
     <div>
-      {!formComplete && !returningUser ? (
+      {!formComplete && !returningUser && userSavedPreference !== "false" ? (
         <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="header">
@@ -100,23 +102,23 @@ const UserPreferenceForm = ({
             </div>
           </div>
         </div>
-      ) : // navigate("")
-      // <Navigate to="/matchedcity" />
-      !returningUser ? (
+      ) : !returningUser ? (
         <MatchedCityPage
           swiped={swiped}
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
           formData={formData}
           swipe={swipe}
+          childRefs={childRefs}
         />
       ) : userSavedPreference != "" ? (
         <MatchedCityPage
           swiped={swiped}
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
-          formData={userSavedPreference}
+          formData={userSavedPreference.returningUserInformation}
           swipe={swipe}
+          childRefs={childRefs}
         />
       ) : (
         <p>Loading....</p>
