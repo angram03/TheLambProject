@@ -11,7 +11,8 @@ const MatchedCityCard = ({
   lastDirection,
   cityCard,
   swipe,
-  // childRefs,
+  // ref,
+  childRefs,
 }) => {
   console.log("FORM DATA", formData);
   console.log("Citycaard");
@@ -68,7 +69,7 @@ const MatchedCityCard = ({
           .map((character, index) => (
             <>
               <TinderCard
-                // ref={childRefs[index]}
+                ref={childRefs[index]}
                 className="swipe"
                 key={index}
                 onSwipe={(dir) =>
@@ -86,32 +87,74 @@ const MatchedCityCard = ({
                     </h3>
                   </Link>
 
-                  <h4 flex items-start>
-                    <center>{character.hobby && formData.hobby}</center>
+                  {/* <h4 flex items-start> */}
+                  {/* <center>{character.hobby && formData.hobby}</center>
                     <center>
                       {character[formData.industry.toLowerCase()] &&
                         formData.industry}
-                    </center>
-                  </h4>
+                    </center> */}
+                  {/* </h4> */}
                 </div>
               </TinderCard>
             </>
           ))}
       </div>
-      {/* <div className="tinder--buttons content-center	">
-        <button id="nope" className="nope"></button>
-        <button id="love">
-          <i className="fa fa-heart heart"></i>
-        </button>
-      </div> */}
+
       <br></br>
+      <div className="flex items-center justify-center">
+        <button
+          className="rounded-full bg-white-500 hover:bg-red-500 text-white"
+          onClick={() => swipe("left", cityCard)}
+        >
+          <svg
+            class="h-12 w-12 text-red-400"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            {" "}
+            <line x1="18" y1="6" x2="6" y2="18" />{" "}
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <div className="pr-4"></div>
+
+        <button
+          className="rounded-full bg-white-500 hover:bg-green-500 text-white"
+          onClick={() => swipe("right", cityCard)}
+        >
+          <svg
+            class="h-12 w-12 text-green-400"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            {" "}
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </button>
+      </div>
+      {/* 
       <center>
         <button className="border-solid border-2 border-sky-500">
           More Info
         </button>
+      </center> */}
+      <center>
+        <p className="bg-[#044389] text-[#E4FAEE]">
+          Cities are orderred in priority of state, then occupation, then hobby
+          then temperature
+        </p>
+        <p className="bg-[#F2BB05] text-[#E4FAEE]">
+          To save a city, swipe right, to reject and move forward, swipe left
+        </p>
       </center>
-      <button onClick={() => swipe("left", cityCard)}>Left</button>
-      <button onClick={() => swipe("right", cityCard)}>Right</button>
     </div>
   );
 };

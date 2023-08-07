@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import StateInfo from "../UserPrefPages/StateInfo";
 import HobbyInfo from "../UserPrefPages/HobbyInfo";
@@ -6,6 +6,7 @@ import Industry from "../UserPrefPages/Industry";
 import WeatherInfo from "../UserPrefPages/WeatherInfo";
 import { useNavigate, Navigate } from "react-router-dom";
 import MatchedCityPage from "../MatchedCityPage/MatchedCityPage";
+import axios from "axios";
 
 const UserPreferenceForm = ({
   swiped,
@@ -14,39 +15,36 @@ const UserPreferenceForm = ({
   formData,
   setFormData,
   swipe,
+  childRefs,
 }) => {
-  // const navigate = useNavigate();
-
-  // function formSubmit() {
-  //   if (
-  //     formData.state &&
-  //     formData.industry &&
-  //     formData.hobbies &&
-  //     formData.weather
-  //   ) {
-  //     navigate("/matchedcity", {
-  //       state: {
-  //         swiped: swiped,
-  //         outOfFrame: outOfFrame,
-  //         lastDirection: lastDirection,
-  //         formData: formData,
-  //       },
-  //     });
-
-  //     <Navigate
-  //       to="/matchedcity"
-  //       swiped={swiped}
-  //       outOfFrame={outOfFrame}
-  //       lastDirection={lastDirection}
-  //       formData={formData}
-  //     />;
-  //   }
-  // }
-
   const [page, setPage] = useState(0);
   const [formComplete, setFormComplete] = useState(false);
+  const [saveData, setSaveData] = useState([]);
+  const [returningUser, setReturningUser] = useState(false);
+  const [userSavedPreference, setUserSavedPreference] = useState([]);
+  const [token, getToken] = useState(localStorage.getItem("token"));
 
-  console.log("formData", formData);
+  // get back saved data of user
+  const returningUserInformation = async () => {
+    try {
+      const headers = {
+        Authorization: "Bearer " + token,
+      };
+      let response = await axios.get(
+        "http://localhost:3001/user/returningUserInformation",
+        { headers }
+      );
+      console.log(response);
+      if (response.data === "false") {
+        setReturningUser(false);
+      } else {
+        setReturningUser(true);
+        setUserSavedPreference(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const FormTitles = ["State", "Industry", "Hobbies", "Weather"];
   const PageDisplay = () => {
@@ -61,13 +59,19 @@ const UserPreferenceForm = ({
     }
   };
 
+  useEffect(() => {
+    returningUserInformation();
+  }, []);
+
   return (
     <div>
-      {!formComplete ? (
+      {!formComplete && !returningUser && userSavedPreference !== "false" ? (
         <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="header">
-              <h1 className="mt-10 text-3xl underline decoration-sky-700/300 font-bold leading-9 tracking-tight text-[#044389]">{FormTitles[page]}</h1>
+              <h1 className="mt-10 text-3xl underline decoration-sky-700/300 font-bold leading-9 tracking-tight text-[#044389]">
+                {FormTitles[page]}
+              </h1>
             </div>
             <br />
             <div className="body">{PageDisplay()}</div>
@@ -98,16 +102,26 @@ const UserPreferenceForm = ({
             </div>
           </div>
         </div>
-      ) : (
-        // navigate("")
-        // <Navigate to="/matchedcity" />
+      ) : !returningUser ? (
         <MatchedCityPage
           swiped={swiped}
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
           formData={formData}
           swipe={swipe}
+          childRefs={childRefs}
         />
+      ) : userSavedPreference != "" ? (
+        <MatchedCityPage
+          swiped={swiped}
+          outOfFrame={outOfFrame}
+          lastDirection={lastDirection}
+          formData={userSavedPreference.returningUserInformation}
+          swipe={swipe}
+          childRefs={childRefs}
+        />
+      ) : (
+        <p>Loading....</p>
       )}
     </div>
   );

@@ -12,13 +12,31 @@ const MatchedCityPage = ({
   lastDirection,
   formData,
   swipe,
-  // childRefs,
+  childRefs,
 }) => {
   const [cityCard, setCityCard] = useState("");
+  const [token, getToken] = useState(localStorage.getItem("token"));
+
   console.log("The formdata is.. ");
   console.log(formData);
+  const saveUserData = async () => {
+    try {
+      const headers = {
+        Authorization: "Bearer " + token,
+      };
+      let response = await axios.post(
+        "http://localhost:3001/user/getUserPreference",
+        { formData },
+        { headers }
+      );
 
-  useEffect(() => {
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const filterPreference = async () => {
     console.log("calling useEffect");
     try {
       axios
@@ -33,6 +51,11 @@ const MatchedCityPage = ({
       console.log("ERROR", error);
     }
     console.log("test");
+  };
+
+  useEffect(() => {
+    saveUserData();
+    filterPreference();
   }, []);
 
   console.log("city page", cityCard);
@@ -46,7 +69,7 @@ const MatchedCityPage = ({
           outOfFrame={outOfFrame}
           lastDirection={lastDirection}
           cityCard={cityCard}
-          // childRefs={childRefs}
+          childRefs={childRefs}
         />
       ) : (
         // "CityCard is empty"
