@@ -63,7 +63,7 @@ const CityScores = ({ city }) => {
               )
               .map((category) => (
                 <div key={category.name} className="w-1/3 px-2">
-                  <h3 className="text-lg font-semibold mb-2">
+                  <h3 className="text-lg font-semibold mb-2 whitespace-nowrap">
                     {category.name}
                   </h3>
                   <div

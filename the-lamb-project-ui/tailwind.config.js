@@ -11,7 +11,7 @@
 // }
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {},
   },
@@ -19,4 +19,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  
 }
