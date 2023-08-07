@@ -87,7 +87,7 @@ const MatchedCityCard = ({
                     </h3>
                   </Link>
 
-                  {/* <h4 flex items-start> */}
+                  {/* <h4 flex items-stpart> */}
                   {/* <center>{character.hobby && formData.hobby}</center>
                     <center>
                       {character[formData.industry.toLowerCase()] &&
@@ -153,6 +153,9 @@ const MatchedCityCard = ({
         </p>
         <p className="bg-[#F2BB05] text-[#E4FAEE]">
           To save a city, swipe right, to reject and move forward, swipe left
+        </p>
+        <p className="bg-[#015239] text-[#E4FAEE]">
+          Click on the city name to view more information
         </p>
       </center>
     </div>

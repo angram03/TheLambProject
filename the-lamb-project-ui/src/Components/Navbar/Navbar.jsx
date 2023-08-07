@@ -32,14 +32,12 @@ const Navbar = ({
         </h1>
 
         <ul className="flex">
-
-
-          
           {inCardMatched && isLoggedIn && (
             <>
               <Link to="/matchedcitieslist">
                 <span className="House">🏠</span>
               </Link>
+
               <span className="CityNumber">{citiesSize}</span>
             </>
           )}
@@ -48,13 +46,17 @@ const Navbar = ({
             <Link to="/about">About</Link>
           </li>
 
-          
-
           {isLoggedIn ? (
-            <li className="p-4 text-lg ">
-              {/* //first get token, if the token is there, set is Logged in to true */}
-              <Link onClick={(e) => handleLogOut()}>Logout</Link>
-            </li>
+            <>
+              <li className="p-4 text-lg ">
+                <Link to="/userpreferences">Home</Link>
+              </li>
+              <li className="p-4 text-lg ">
+                {/* //first get token, if the token is there, set is Logged in to true */}
+
+                <Link onClick={(e) => handleLogOut()}>Logout</Link>
+              </li>
+            </>
           ) : (
             <>
               <li className="p-4 text-lg ">
@@ -66,9 +68,7 @@ const Navbar = ({
               </li>
             </>
           )}
-
         </ul>
-        
       </div>
     </div>
   );

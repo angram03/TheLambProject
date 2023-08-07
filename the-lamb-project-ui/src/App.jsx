@@ -22,7 +22,6 @@ import Weather from "./Components/Weather/Weather";
 import CityCard from "./Components/MoreInformationCard/temp";
 import MoreInformationCard from "./Components/MoreInformationCard/MoreInformationCard";
 
-
 const App = () => {
   const [appState, setAppState] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,10 +39,10 @@ const App = () => {
   const [arrayLength, setArrayLength] = useState(0);
   // const currentIndexRef = useRef(currentIndex)
   // const childRefs = 0;
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(true);
   function toggleDarkMode() {
-    setDarkMode(prevDarkMode => !prevDarkMode)
-}
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  }
 
   const swiped = (
     direction,
@@ -108,12 +107,13 @@ const App = () => {
     // console.log(childRefs[0]);
     // await childRefs[currentIndexRef].current.swipe(dir);
     console.log("citycard", cityCard.pers_preference.length);
-    console.log(arrayLength);
+
     setArrayLength(cityCard.pers_preference.length);
+    console.log(arrayLength);
     console.log("arrayLength", arrayLength);
     console.log("CURRENT INDEX", currentIndex);
 
-    await childRefs[21].current.swipe(dir);
+    await childRefs[0].current.swipe(dir);
   };
   const childRefs = useMemo(
     () =>
