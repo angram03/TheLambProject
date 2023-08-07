@@ -53,7 +53,7 @@ const Navbar = ({
           {isLoggedIn ? (
             <li className="p-4 text-lg ">
               {/* //first get token, if the token is there, set is Logged in to true */}
-              <Link onClick={(e) => handleLogOut()}>logout</Link>
+              <Link onClick={(e) => handleLogOut()}>Logout</Link>
             </li>
           ) : (
             <>

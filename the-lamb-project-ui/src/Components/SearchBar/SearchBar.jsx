@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const CitySummary = () => {
   const [cityName, setCityName] = useState('');
   const [summary, setSummary] = useState('');
-  const [teaserLength, setTeaserLength] = useState(100); // Adjust the teaser length as needed
+  const [teaserLength, setTeaserLength] = useState(200); // Increase the teaser length to 200 characters
+  const [searched, setSearched] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -15,16 +17,15 @@ const CitySummary = () => {
       const responseData = response.data;
       setCityName(responseData._links?.ua?.name || '');
       setSummary(responseData.summary || '');
+      setSearched(true);
+      setError('');
     } catch (error) {
       console.error('Error fetching city summary:', error.message);
       setSummary('');
+      setSearched(true);
+      setError('No summary found for the entered city.');
     }
   };
-
-  useEffect(() => {
-    // By default, load summary for a default city, e.g., Houston
-    handleSearch({ preventDefault: () => {} }); // Pass an empty object with a `preventDefault` function to simulate the event
-  }, []);
 
   const replaceTeleportWithLAMB = (text) => {
     return text.replace(/Teleport/g, 'LAMB');
@@ -38,8 +39,8 @@ const CitySummary = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12"> {/* Add padding to the container */}
-      <form onSubmit={handleSearch} className="mb-4 flex justify-center"> {/* Center the search bar */}
+    <div className="container mx-auto px-4 py-12">
+      <form onSubmit={handleSearch} className="mb-4 flex justify-center">
         <input
           type="text"
           placeholder="Enter city name"
@@ -51,20 +52,21 @@ const CitySummary = () => {
           Try Now!
         </button>
       </form>
-      {summary ? (
+      {searched && summary && (
         <div>
           <h1 className="text-3xl font-bold mb-4">{cityName}</h1>
           <div className="mt-8">
             <h2 className="text-2xl font-semibold mb-2 flex justify-center">City Summary</h2>
             <div className="text-xl flex justify-center" dangerouslySetInnerHTML={{ __html: replaceTeleportWithLAMB(getTeaser(summary, teaserLength)) }} />
           </div>
-          <p className="mt-4 text-lg py-5  text-[red] selection: rounded-lg flex justify-center">
+          <p className="mt-4 text-lg py-5 text-[red] rounded-lg flex justify-center">
             Create an account to see the full summary and access personalized features!
           </p>
         </div>
-      ) : (
+      )}
+      {searched && error && (
         <div className="mb-4 flex justify-center px-4 py-2">
-          No summary found for the entered city. Sign in for more cities!
+          {error}
         </div>
       )}
     </div>
