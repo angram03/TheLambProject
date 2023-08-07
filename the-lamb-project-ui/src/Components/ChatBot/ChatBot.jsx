@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+const MAX_MESSAGES = 5; // Set the maximum number of messages to display
+
 const Chatbot = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false); // Toggle state for chatbot visibility
-  const [isTyping, setIsTyping] = useState(false); // Toggle state for typing indicator
-  // these are the only options the users have to choose from
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+
   const presetChoices = {
     "What does LAMB do?":
       "LAMB is designed to give you personalized city choices based on your preferences. LAMB is typically used by young adults relocating for the first time who may feel like lambs in a new city.",
@@ -16,15 +18,6 @@ const Chatbot = () => {
     Exit: "Thanks for stopping by! If you have any more questions, feel free to ask. Have a great day!",
   };
 
-  useEffect(() => {
-    // Send the introduction message when the component is shown
-    const hasSeenIntroduction = localStorage.getItem("hasSeenIntroduction");
-    if (!hasSeenIntroduction) {
-      sendIntroductionMessage();
-      localStorage.setItem("hasSeenIntroduction", "true");
-    }
-  }, []);
-
   const sendIntroductionMessage = () => {
     const introMessage = "Hello, I am BaaBot! How can I assist you?";
     setChatMessages((prevMessages) => [
@@ -33,9 +26,15 @@ const Chatbot = () => {
     ]);
   };
 
+  useEffect(() => {
+    if (isChatbotOpen) {
+      sendIntroductionMessage();
+    }
+  }, [isChatbotOpen]);
+
   const handleUserInput = (message) => {
     setChatMessages((prevMessages) => [
-      ...prevMessages,
+      ...prevMessages.slice(-MAX_MESSAGES + 1), // Keep only the last `MAX_MESSAGES` messages
       { sender: "You", message },
     ]);
     setUserInput("");
@@ -49,7 +48,7 @@ const Chatbot = () => {
           ...prevMessages,
           { sender: "BaaBot", message: presetChoices["Exit"] },
         ]);
-        setIsChatbotOpen(false); // Close the chatbot without exiting the page
+        setIsChatbotOpen(false);
       } else {
         const answer =
           presetChoices[message] ||
@@ -59,12 +58,12 @@ const Chatbot = () => {
           { sender: "BaaBot", message: answer },
         ]);
       }
-    }, 1000); // Add a 1-second delay before displaying the answer
+    }, 1000);
   };
 
   return (
     <div className="fixed bottom-20 right-4 z-50">
-      {!isChatbotOpen && ( // Show the "FAQ" button when chatbot is closed
+      {!isChatbotOpen && (
         <button
           onClick={() => setIsChatbotOpen(true)}
           className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -77,19 +76,42 @@ const Chatbot = () => {
           <p>FAQ</p>
         </button>
       )}
-      {isChatbotOpen && ( // Render the chatbot component only when isChatbotOpen is true
-        <div className="bg-white p-2 rounded-lg shadow mb-2 max-w-xs overflow-y-auto">
-          <div id="chatbox">
+      {isChatbotOpen && (
+        <div className="bg-white p-2 rounded-lg shadow mb-2 max-w-lg overflow-y-auto">
+          <div className="flex justify-end">
+            <button
+              onClick={() => setIsChatbotOpen(false)}
+              className="text-red-600 text-2xl font-bold focus:outline-none"
+            >
+              &times;
+            </button>
+          </div>
+          <div className="flex justify-center items-center mb-2">
+            <div
+              className="rounded-full bg-blue-500 w-12 h-12 flex justify-center items-center"
+            >
+              <img
+                className="object-contain h-8"
+                src="images/sheep.png"
+                alt="BaaBot"
+              />
+            </div>
+            <p className="text-gray-800 ml-2 font-semibold">BaaBot</p>
+          </div>
+          <hr className="my-2 border-gray-400" style={{ borderColor: "#015239" }} /> {/* Horizontal line with dark green color */}
+          <div id="chatbot">
             {chatMessages.map((chat, index) => (
               <div
                 key={index}
-                className={`mb-2 ${
+                className={`mb-4 ${
                   chat.sender === "You" ? "text-right" : "text-left"
                 }`}
               >
                 <div
                   className={`${
-                    chat.sender !== "You" ? "bg-blue-200" : "bg-gray-300"
+                    chat.sender !== "You"
+                      ? "bg-blue-500 text-white" // Dark green background for conversation bubble
+                      : "bg-gray-300 text-black" // Light green background for user messages
                   } rounded-lg px-3 py-1 inline-block max-w-xs shadow-md`}
                 >
                   {chat.message}
