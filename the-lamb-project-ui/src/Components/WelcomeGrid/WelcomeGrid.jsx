@@ -2,56 +2,38 @@ import React from "react";
 
 const WelcomeGrid = () => {
   return (
-    <div className="flex flex-col gap-4 px-5 ">
-      <div className="bg-[#E4FAEE] p-4 rounded-lg text-black md:w-full py-8 flex items-center">
-      <img  className = "h-4/6 rounded-xl"src="images/swiping.gif" alt="Swiping animation" />
-
-        <div>
-          <h2 className="font-bold text-5xl mb-4">
-            ⚡ Personalized Recommendations ⚡
-          </h2>
-          <p className="text-lg px-2">
-            Explore your ideal city effortlessly with LAMB! Benefit from
-            personalized recommendations tailored to your preferences, covering
-            neighborhood characteristics, safety, and nearby amenities. This all
-            in one web app saves precious time that can be used to explore your
-            ideal city.
-          </p>
+    <div>
+      <h1 className="text-6xl py-12 px-12 text-[#015239]">Relocating to a new city made simple. </h1>
+    <div className="flex flex-col md:flex-row gap-8 px-5 py-16">
+      <div className="bg-[white]  p-8 rounded-lg text-[#015239]  outline outline-4 md:w-1/2 py-16">
+        
+        <h1 className="font-bold text-4xl text-center">1</h1>
+        <div className="flex justify-center items-center">
+          <img className="w-1/2" src="images/feedback.png" />
         </div>
+        <h2 className="font-bold text-4xl mb-4 text-center">
+          Personalize your reccomendations
+        </h2>
       </div>
 
-      <div className="bg-[#015239] p-4 rounded-lg text-white md:w-full py-8 flex items-center">
-        <div>
-          <h2 className="font-bold text-xl mb-4">
-            🧠 Improved Decision-Making and Safety 🧠
-          </h2>
-          <p>
-            Discover peace of mind and confidence in your relocation process with
-            LAMB! Gain access to vital information about neighborhood safety and
-            other crucial aspects of the area. Choose a safe and secure living
-            environment, knowing that LAMB has your back every step of the way.
-          </p>
+      <div className="bg-[white]  p-8 rounded-lg text-[#015239]  outline outline-4 md:w-1/2 py-16">
+        <h1 className="font-bold text-4xl text-center">2</h1>
+        <div className="flex justify-center items-center">
+          <img className="w-1/2" src="images/choosing.gif" />
         </div>
-        <img src="images/decision-making.gif" alt="Decision Making animation" className="max-w-80 ml-8" />
+        <h2 className="font-bold text-4xl mb-4 text-center">Start Swiping!</h2>
       </div>
 
-      <div className="bg-[#015239] p-4 rounded-lg text-white md:w-full py-8 flex items-center">
-        <div>
-          <h2 className="font-bold text-xl mb-4">
-            🌐 Enhanced Integration and Community Engagement 🌐
-          </h2>
-          <p>
-            Experience a seamless transition and forge meaningful connections in
-            your new community with LAMB! Let us help you integrate into your
-            surroundings, fostering a sense of belonging and familiarity that will
-            make you feel right at home from day one.
-          </p>
+      <div className="bg-[white]  p-8 rounded-lg text-[#015239]  outline outline-4 md:w-1/2 py-16">
+        <h1 className="font-bold text-4xl text-center">3</h1>
+        <div className="flex justify-center items-center">
+          <img className=" w-1/2" src="images/website.png" />
         </div>
-        <img src="images/integration.gif" alt="Integration animation" className="max-w-80 ml-8" />
+        <h2 className="font-bold text-4xl mb-4 text-center px-8">Instant City Data</h2>
       </div>
+    </div>
     </div>
   );
 };
 
 export default WelcomeGrid;
-

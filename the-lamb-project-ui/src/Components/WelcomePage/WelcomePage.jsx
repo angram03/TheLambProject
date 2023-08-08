@@ -12,8 +12,8 @@ const WelcomePage = () => {
     <div>
       <Chatbot/>
       <Hero />
-      <SearchBar />
       <WelcomeGrid />
+      <SearchBar />
       <Chatbot/>
       <Destinations/>
       <ContactUs />
