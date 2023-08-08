@@ -40,6 +40,7 @@ const CitySummary = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
+
       <form onSubmit={handleSearch} className="mb-4 flex justify-center">
         <input
           type="text"
@@ -55,6 +56,7 @@ const CitySummary = () => {
       <br></br>
       <p className=' text-center text-[#015239] text-2xl'>Type in a city name to view summary</p>
 
+
       {searched && summary && (
         <div>
           <h1 className="text-3xl font-bold mb-4">{cityName}</h1>
@@ -62,6 +64,8 @@ const CitySummary = () => {
             <h2 className="text-2xl font-semibold mb-2 flex justify-center">City Summary</h2>
             <div className="text-xl flex justify-center" dangerouslySetInnerHTML={{ __html: replaceTeleportWithLAMB(getTeaser(summary, teaserLength)) }} />
           </div>
+
+          
           
           <p className="mt-4 text-lg py-5 text-[red] rounded-lg flex justify-center">
             Create an account to see the full summary and access personalized features!

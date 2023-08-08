@@ -3,6 +3,7 @@ import React from "react";
 const WelcomeGrid = () => {
   return (
     <div>
+      
       <h1 className="text-6xl py-12 px-12 text-[#015239]">Relocating to a new city made simple. </h1>
     <div className="flex flex-col md:flex-row gap-8 px-5 py-16">
       <div className="bg-[white]  p-8 rounded-lg text-[#015239]  outline outline-4 md:w-1/2 py-16">
