@@ -31,7 +31,7 @@ export default function LoginForm({ setAppState, setIsLoggedIn }) {
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await axios.post(`http://localhost:3001/auth/login`, form );
+      const res = await axios.post(`https://lifetracker-api-w918.onrender.com/auth/login`, form );
       const token = res.data.token;
       const user = res.data.user;
       localStorage.setItem("token", token)

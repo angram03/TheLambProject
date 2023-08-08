@@ -13,7 +13,7 @@ const MoreInformationCard = () => {
     try {
       // const response = await axios.get("http://localhost:3001/getwalkscore/"+ city);
       const response = await axios.get(
-        `http://localhost:3001/getwalkscore/${city}`
+        `https://lifetracker-api-w918.onrender.com/getwalkscore/${city}`
       );
       setInfo(response?.data);
     } catch (error) {
@@ -24,7 +24,7 @@ const MoreInformationCard = () => {
   const getWeatherData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/historical-weather?city=${city}`
+        `https://lifetracker-api-w918.onrender.com/api/historical-weather?city=${city}`
       );
       setWeatherData(response.data);
       setError(null);

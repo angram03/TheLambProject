@@ -14,7 +14,7 @@ function getDatabaseUri() {
 
   return (
     process.env.DATABASE_URL ||
-    `postgresql://${dbUser}:${dbpass}@${dbhost}:${dbport}/${dbName}`
+    "postgres://lamb_db_user:bjuSpByBmQAN0FSVD8IGobP4Sqfm8AfH@dpg-cj8nbhukntus73fibkv0-a/lamb_db"
   );
 }
 
