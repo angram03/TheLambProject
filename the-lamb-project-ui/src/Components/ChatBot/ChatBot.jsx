@@ -113,7 +113,7 @@ const Chatbot = () => {
                   className={`${
                     chat.sender !== "You"
                       ? "bg-blue-500 text-white" // Dark green background for conversation bubble
-                      : "bg-gray-300 text-black" // Light gray background for user messages
+                      : "bg-gray-300 text-black" // Light green background for user messages
                   } rounded-lg px-3 py-1 inline-block max-w-xs shadow-md`}
                 >
                   {chat.message}

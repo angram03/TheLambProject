@@ -13,7 +13,7 @@ const CitySummary = () => {
     try {
       // Replace spaces with hyphens and convert to lowercase
       const formattedCityName = cityName.replace(/\s+/g, '-').toLowerCase();
-      const response = await axios.get(`http://localhost:3001/api/city/${formattedCityName}/scores`);
+      const response = await axios.get(`https://lifetracker-api-w918.onrender.com/api/city/${formattedCityName}/scores`);
       const responseData = response.data;
       setCityName(responseData._links?.ua?.name || '');
       setSummary(responseData.summary || '');
