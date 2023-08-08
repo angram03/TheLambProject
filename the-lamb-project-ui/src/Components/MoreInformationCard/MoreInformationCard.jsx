@@ -48,7 +48,7 @@ const MoreInformationCard = () => {
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-5xl">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="px-4 sm:px-0">
-          <h1 className="text-xl font-semibold leading-7 text-[#044389]">
+          <h1 className="text-5xl font-semibold font-serif leading-7 text-[#044389]">
             {city.toUpperCase()} INFORMATION 🏙️
           </h1>
           <p className="mt-1 max-w-2xl text-sm font-semibold leading-6 text-[#015239]">
@@ -58,46 +58,48 @@ const MoreInformationCard = () => {
         <div className="mt-6 border-t border-gray-100">
           <dl className="divide-y divide-gray-100">
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-semibold leading-6 text-[#044389]">
+              <dt className="text-2xl font-semibold leading-6 text-[#044389]">
                 Walk Score:
               </dt>
-              <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
+              <dd className="mt-1 text-2xl leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
                 {info?.walkscore}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-semibold leading-6 text-[#044389]">
+              <dt className="text-2xl font-semibold leading-6 text-[#044389]">
                 {" "}
                 Transit Score:
               </dt>
-              <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
+              <dd className="mt-1 text-2xl leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
                 {info?.transit?.score}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-semibold leading-6 text-[#044389]">
+              <dt className="text-2xl font-semibold leading-6 text-[#044389]">
                 {" "}
                 Bike Score:{" "}
               </dt>
-              <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
+              <dd className="mt-1 text-2xl leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
                 {info?.bike?.score}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-semibold leading-6 text-[#044389]">
+              <dt className="text-2xl font-semibold leading-6 text-[#044389]">
                 Weather:{" "}
               </dt>
-              <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
+              <dd className="mt-1 text-2xl leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
                 🥶 Lowest Temperature: {weatherData?.todayMinTemp}°F <br />
+                <br />
                 🌡 Average Temperature: {weatherData?.todayAvgTemp}°F <br />
+                <br />
                 🥵 Highest Temperature: {weatherData?.todayMaxTemp}°F{" "}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-semibold leading-6 text-[#044389]">
+              <dt className="text-2xl font-semibold leading-6 text-[#044389]">
                 City Description:
               </dt>
-              <dd className="mt-1 text-sm leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
+              <dd className="mt-1 text-xl leading-6 font-semibold text-[#015239] sm:col-span-2 sm:mt-0">
                 {<CityScores city={city} />}
               </dd>
             </div>
