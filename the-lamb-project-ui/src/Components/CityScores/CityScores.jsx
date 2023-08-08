@@ -8,7 +8,7 @@ const CityScores = ({ city }) => {
   async function getCityScore() {
     try {
       const response = await axios.get(
-        `https://lifetracker-api-w918.onrender.com/api/city/${city}/scores`
+        `https://the-lamb-project-api.onrender.com/api/city/${city}/scores`
       );
       const responseData = response.data;
       setCityName(responseData._links?.ua?.name || "");

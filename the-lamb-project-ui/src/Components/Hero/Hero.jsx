@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     // contains entire hero, relative allows us to position the video and other elements inside it
 
-    <div className="relative bg-[#015239] rounded-sm text-white p-10 text-center py-60">
+    <div className="relative bg-[#015239] rounded-sm text-white p-10 text-center py-96">
       {/* allows video to display on page 
       This will position the video absolutely within its parent container and make it cover the entire area of the parent div while maintaining its aspect ratio. */}
 

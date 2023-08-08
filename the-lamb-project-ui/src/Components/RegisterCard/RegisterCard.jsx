@@ -55,7 +55,7 @@ export default function RegisterCard({ setAppState, setIsLoggedIn }) {
     }
 
     try {
-      const res = await axios.post(`https://lifetracker-api-w918.onrender.com/auth/register`, {
+      const res = await axios.post(`https://the-lamb-project-api.onrender.com/auth/register`, {
         userName: form.userName,
         email: form.email,
         password: form.password,

@@ -25,7 +25,7 @@ const MatchedCityPage = ({
         Authorization: "Bearer " + token,
       };
       let response = await axios.post(
-        "https://lifetracker-api-w918.onrender.com/user/getUserPreference",
+        "https://the-lamb-project-api.onrender.com/user/getUserPreference",
         { formData },
         { headers }
       );
@@ -40,7 +40,7 @@ const MatchedCityPage = ({
     console.log("calling useEffect");
     try {
       axios
-        .post("https://lifetracker-api-w918.onrender.com/user/personal_preference", { formData })
+        .post("https://the-lamb-project-api.onrender.com/user/personal_preference", { formData })
         .then((response) => {
           setCityCard(response.data);
           console.log("response.data from matchedcity: ");
