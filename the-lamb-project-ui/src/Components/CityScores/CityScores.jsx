@@ -89,7 +89,7 @@ const CityScores = ({ city }) => {
           </div>
         </div>
       ) : (
-        <div>No scores found for the entered city.</div>
+        <div>No description found for the entered city.</div>
       )}
     </div>
   );
