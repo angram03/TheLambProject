@@ -63,5 +63,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on https://lifetracker-api-w918.onrender.com/${PORT}`);
+  console.log(`Server running on https://the-lamb-project-api.onrender.com/${PORT}`);
 });

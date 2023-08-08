@@ -31,7 +31,7 @@ const UserPreferenceForm = ({
         Authorization: "Bearer " + token,
       };
       let response = await axios.get(
-        "https://lifetracker-api-w918.onrender.com/user/returningUserInformation",
+        "https://the-lamb-project-api.onrender.com/user/returningUserInformation",
         { headers }
       );
       console.log(response);

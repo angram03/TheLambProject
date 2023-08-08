@@ -13,7 +13,7 @@ const Weather = () => {
   const getWeatherData = async () => {
     try {
       const response = await axios.get(
-        `https://lifetracker-api-w918.onrender.com/api/historical-weather?city=${city}`
+        `https://the-lamb-project-api.onrender.com/api/historical-weather?city=${city}`
       );
       setWeatherData(response.data);
       setError(null);
