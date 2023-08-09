@@ -148,11 +148,10 @@ const MatchedCityCard = ({
       </center> */}
       <center>
         <p className="bg-[#044389] text-[#E4FAEE]">
-          Cities are orderred in priority of state, then occupation, then hobby
-          then temperature
+          Cities are ordered in priority of state, occupation, hobby, and temperature
         </p>
         <p className="bg-[#F2BB05] text-[#E4FAEE]">
-          To save a city, swipe right, to reject and move forward, swipe left
+          To save a city, swipe right. To reject, swipe left.
         </p>
         <p className="bg-[#015239] text-[#E4FAEE]">
           Click on the city name to view more information
