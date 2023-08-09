@@ -75,7 +75,7 @@ const MatchedCityPage = ({
         // "CityCard is empty"
         // <div className="border">
         //   <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"></svg>
-        <p> Loading...</p>
+        <p className="justify-center"> Loading...</p>
 
         // </div>
       )}
