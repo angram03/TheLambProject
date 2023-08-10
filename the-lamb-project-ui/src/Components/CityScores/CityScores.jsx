@@ -80,7 +80,7 @@ const CityScores = ({ city }) => {
               ))}
           </div>
           <div className="mt-8">
-            <h2 className="text-2xl font-semibold mb-2">Summary</h2>
+            <h2 className="text-3xl font-semibold mb-2 underline">Summary</h2>
             <div
               dangerouslySetInnerHTML={{
                 __html: replaceTeleportWithLAMB(summary),
