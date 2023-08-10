@@ -13,7 +13,7 @@ const WelcomeGrid = () => {
           <img className="w-1/2" src="images/feedback.png" />
         </div>
         <h2 className="font-bold text-4xl mb-4 text-center">
-          Personalize your reccomendations
+          Personalize your recomendations
         </h2>
       </div>
 

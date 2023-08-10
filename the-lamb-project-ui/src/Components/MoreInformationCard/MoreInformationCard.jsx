@@ -48,10 +48,11 @@ const MoreInformationCard = () => {
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-5xl">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="px-4 sm:px-0">
-          <h1 className="text-5xl font-semibold font-serif leading-7 text-[#044389]">
+          <h1 className="text-5xl font-semibold leading-7 text-[#044389]">
             {city.toUpperCase()} INFORMATION 🏙️
           </h1>
-          <p className="mt-1 max-w-2xl text-sm font-semibold leading-6 text-[#015239]">
+          <br />
+          <p className="mt-1 max-w-2xl text-xl font-semibold leading-6 text-[#015239]">
             More details to ensure this is the city that you want!
           </p>
         </div>
