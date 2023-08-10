@@ -140,21 +140,17 @@ const MatchedCityCard = ({
           </svg>
         </button>
       </div>
-      {/* 
+
       <center>
-        <button className="border-solid border-2 border-sky-500">
-          More Info
-        </button>
-      </center> */}
-      <center>
-        <p className="bg-[#044389] text-[#E4FAEE]">
-          Cities are ordered in priority of state, occupation, hobby, and temperature
+        <br></br>
+        <p className="text-white bg-[#044389]  ">
+          Cities are ordered in priority of state, occupation, hobby, and temperature.
         </p>
-        <p className="bg-[#F2BB05] text-[#E4FAEE]">
+        <p className="text-white bg-[#044389] ">
           To save a city, swipe right. To reject, swipe left.
         </p>
-        <p className="bg-[#015239] text-[#E4FAEE]">
-          Click on the city name to view more information
+        <p className="text-white bg-[#044389]  ">
+          Click on the city name to view more information!
         </p>
       </center>
     </div>
