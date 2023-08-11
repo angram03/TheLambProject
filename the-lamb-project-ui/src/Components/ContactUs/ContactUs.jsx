@@ -34,6 +34,8 @@ const ContactUs = () => {
   }
 
   return (
+    <div className="mt-10 sm:mx-auto  sm:max-w-5xl">
+    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <div className="p-5 py-20">
       <h2 className="text-2xl font-bold mb-4">Contact Us!</h2>
 
@@ -84,6 +86,8 @@ const ContactUs = () => {
           Send Message
         </button>
       </form>
+    </div>
+    </div>
     </div>
   );
 };
